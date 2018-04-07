@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <!-- Custom styles for this template -->
+  <link href="algorithms.css" rel="stylesheet">
+  <title>Machine Learning Visualized</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">Each algorithm listed below and to the side contains an introduction, an abstracted explanation, a visual representation, and an in depth analysis. You can jump from one algorithm to another without going to the directory page by simply using
+              this navigational dropdown and choosing the next one to view. Finally if you would like to go back to the introduction or find more learning resources you can find the links right below this text. </p>
+            <ul class="list-unstyled">
+              <li><a href="introduction.html" class="text-white">Introduction to Machine Learning</a></li>
+              <li><a href="algorithms.html" class="text-white">Algorithms</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 py-4">
+            <h4 class="text-white">Algorithms</h4>
+            <ul class="list-unstyled">
+              <li><a href="kMeans.html" class="text-white">k Means</a></li>
+              <li><a href="kNN.html" class="text-white">kNN</a></li>
+              <li><a href="svm.html" class="text-white">SVM</a></li>
+              <li><a href="linear_reg.html" class="text-white">Linear Regression</a></li>
+              <li><a href="logistic_reg.html" class="text-white">Logistic Regression</a></li>
+              <li><a href="neural_net.html" class="text-white">Neural Network</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark" style="background-color: #212121;">
+      <div class="container d-flex justify-content-between">
+        <a href="index.html" class="navbar-brand">Machine Learning Visualized</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="alg-header" align="center">
+    <h1 align="center">SVM (Support Vector Machine) </h1>
+    <a href="kNN.html" class="previous">&laquo; K Nearest Neighbors</a>
+    <a href="linear_reg.html" class="next">Linear Regression &raquo;</a>
+  </div>
+
+  <div class="alg-intro">
+    <h3>Introduction</h3>
+    <br>
+    <h5><strong>Learning Type:</strong> Unsupervised</h5>
+    <h5><strong>Usage:</strong><i>Classification & Regression</i></h5>
+    <br>
+    <h6><strong>In a Nutshell</strong></h6>
+    <p>Support vector machine is mostly a classification algorithm which means it is used to put data into different groups depending on their properties. Once all data is plotted on a graph, we use regression to determine an equation ( called a hyper-plane
+      ) that will separate the data to the best of its ability. In otherwords, it looks at plotted data and tries to find an 'equation of separation' that will separate different groupings of data if those groups actually exist.</p>
+    <h6><strong>Abstract Explanation</strong></h6>
+    <p>To picture what this might look like, think about two different fenced in farms owned by the same person separated by a long road. On the left side of the road is farm one which contains dairy cows. On the right side of the road is farm b which contains
+      beef cows. The owner of these farms has decided to split the cows up into groups, meaning they are different due to some classification. Now imagine that the greater the difference between these cows, the wider the road is. If the cows were extremely
+      different for one reason or another, the road would be have many more lanes. If the cows weren't truly that different, the road would have one lane, or, in extreme cases, there might just be the fences that separate the cows.</p>
+    <p>In this example, the width of the road represents the value of the difference between the data point groups. The road is the split in the data and the correlation between the two groups. In some cases, imagine we have a smaller subgroup of cows that
+      have a circular fence, and they are surrounded by a larger fenced in farm. This type of classification can be found within a dataset as well. </p>
+  </div>
+
+  <div class="alg-visual">
+    <h3>Algorithm Execution</h3>
+
+    <div id=dataSet>
+      <h2><strong>Data Points Plotted</strong></h2>
+      <div id="btns">
+        <button class="dataGo"><i class="fa fa-play-circle"></i></button>
+      </div>
+      <br><br>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+      <div id="dataPoint"></div>
+    </div>
+    <br><br><br>
+
+  </div>
+
+
+  <div class="alg-analysis">
+    <br><br><br>
+    <hr>
+    <h3>Algorithm Analysis</h3>
+    <br>
+    <h5><strong>Pros</strong></h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h5><strong>Cons</strong></h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h5><strong>Math Involved</strong></h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>Machine Learning Visualized &copy; is a 2017 thesis developed in 2017 for Endicott College by Brendan McLaughlin</p>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+
+</html>

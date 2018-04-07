@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- Custom styles for this template -->
+  <link href="algorithms.css" rel="stylesheet">
+  <title>Machine Learning Visualized</title>
+</head>
+
+<body>
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">Each algorithm listed to the side contains an introduction, an abstracted explanation, a visual representation, and an in depth analysis. You can jump from one algorithm to another without going to the directory page by simply using this navigational
+              dropdown and choosing the next one to view. Finally if you would like to go to the introduction and find more learning resources you can find those below the algorithms to the right. We hope you enjoy the site and if you have any suggestions
+              or comments please feel free to email bmcla435@mail.endicott.edu </p>
+          </div>
+          <div class="col-sm-4 py-4">
+            <h4><a href="algorithms.html" class="text-white">Algorithms</a></h4>
+            <ul class="list-unstyled">
+              <li><a href="kMeans.html" class="text-white">k Means</a></li>
+              <li><a href="kNN.html" class="text-white">kNN</a></li>
+              <li><a href="svm.html" class="text-white">SVM</a></li>
+              <li><a href="linear_reg.html" class="text-white">Linear Regression</a></li>
+              <li><a href="logistic_reg.html" class="text-white">Logistic Regression</a></li>
+              <li><a href="neural_net.html" class="text-white">Neural Network</a></li>
+            </ul>
+            <br>
+            <h4><a href="introduction.html" class="text-white">Introduction</a></h4>
+            <h4><a href="introduction.html#resources" class="text-white">Learn More</a></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark" style="background-color: #212121;">
+      <div class="container d-flex justify-content-between">
+        <a href="index.html" class="navbar-brand">Machine Learning Visualized</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="alg-header" align="center">
+    <h1 align="center">K Means (Clustering)</h1>
+    <a href="introduction.html" class="previous">&laquo; Introduction</a>
+    <a href="kNN.html" class="next">K Nearest Neighbors &raquo;</a>
+  </div>
+
+  <div class="alg-intro">
+    <br><br>
+    <h2><strong>Introduction</strong></h2>
+    <hr><br>
+    <h4><strong>Type of Machine Learning:</strong></h4>
+    <i><a href="introduction.html#unsupervised">Unsupervised</a>- Data is not labeled</i>
+    <br><br>
+    <h4><strong>Usage:</strong></h4>
+    <i>Classification (Clustering) - Finding groups within the data</i>
+    <br><br><br>
+    <h4><strong>Example</strong></h4><br>
+    <img src="img/k-means_convergence.gif" alt="K Means Algorithm">
+    <br><br><br>
+    <h4><strong>In a Nutshell</strong></h4>
+    <p>Group data into 'K' many groups / clusters. In the example above, K = 3 since there are three groupings that the data is being assigned to.</p>
+    <h4><strong>Abstract Explanation</strong></h4>
+    <p>K Means can be thought of in terms of a 'K' students transfering to a different college. These 'K' students represent the centroids in this case. All of the other students who were already at the school represent all of the data points. As the new
+      students meet the current students they are doing to evaluate close they are to everyone. Day by day they will begin to become closer to those who are nearest to them and vice versa. In this way, eventually they will find themselves settled into
+      a place where they have settled into a friend group full of other students who they are closest to. This is demonstrated in the animations below.</p>
+    <h4><strong>The algorithm only has a few steps:</strong></h4>
+    <ul>
+      <li><strong>Determine the most suitable number for K | e.g. how many centroids (classifiers / groups) make sense?</strong></li>
+      <li><strong>Determine a method for where to place those centroids, either randomly generated or randomly selected</strong></li>
+      <li><strong>Then repeatdly run three steps in order to find groups within the data set</strong></li>
+      <ul class="list-unstyled">
+        <li>1) Assign each data point to the centroid nearest to it</li>
+        <li>2) Calculate the mean distance (Euclidean Distance) of all points assigned to each centroid</li>
+        <li>3) Move the centroids to the coordinate that is closest to all datapoints that are currently assigned to it</li>
+      </ul>
+    </ul>
+    <br>
+  </div>
+
+  <div align="center" class="alg-visual">
+    <h1>K Means Clustering Algorithm</h1>
+    <hr>
+    <div align="left" class="alg-steps">
+      <ul class="list-unstyled">
+        <li><strong>Input:</strong></li>
+        <ul>
+          <li><strong>K</strong><small> (Number of clusters)</small></li>
+          <li>the data set</li>
+        </ul>
+        <br>
+        <li><strong>Setup - </strong>Randomly generate starting positions for the K many centriods</li>
+        <br>
+        <li><strong>1) Data Assignment:</strong> Each centroid represents a cluster, each datapoint is assigned to nearest centroid</li>
+        <li><strong>2) Centroid Update:</strong> Calculate mean distance data points assigned to a centroid's cluster, move centroid to mean distance</li>
+        <li><strong>3) Repeat Steps 1 and 2 until centroids no longer update</strong></li>
+        <br>
+        <li><strong>For example: </strong>If K = 3 for a certain data set</li>
+      </ul>
+    </div>
+    <br><br>
+
+    <button onclick="updateCentroid(clusters, clusterColor, allClusters)">Update Centroids</button>
+    <br><br>
+    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" id="graph" aria-labelledby="title" role="img">
+      <title id="title">K Means Algorithm in Action</title>
+
+      <g class="grid x-grid" id="xGrid">
+        <line x1="100" x2="100" y1="0" y2="500"></line>
+      </g>
+      <g class="grid y-grid" id="yGrid">
+        <line x1="100" x2="600" y1="500" y2="500"></line>
+      </g>
+      <g class="labels x-labels">
+        <text x="100" y="520">0</text>
+        <text x="225" y="520">10</text>
+        <text x="350" y="520">20</text>
+        <text x="475" y="520">30</text>
+        <text x="600" y="520">40</text>
+        <text x="400" y="540" class="label-title">x axis</text>
+      </g>
+      <g class="labels y-labels">
+        <text x="80" y="15">40</text>
+        <text x="80" y="131">30</text>
+        <text x="80" y="248">20</text>
+        <text x="80" y="373">10</text>
+        <text x="50" y="200" class="label-title">y axis</text>
+      </g>
+      <g class="data" data-setname="K Means Example Data Set"></g>
+    </svg>
+  </div>
+
+  <div class="alg-analysis">
+    <br>
+    <h3>Algorithm Analysis</h3>
+    <br>
+    <h5><strong>Pros</strong></h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h5><strong>Cons</strong></h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h5><strong>Math Involved</strong></h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+
+  <br><br><br>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>Machine Learning Visualized &copy; is a 2017 thesis developed in 2017 for Endicott College by Brendan McLaughlin</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+  <script src="kmeans.js"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+
+</html>

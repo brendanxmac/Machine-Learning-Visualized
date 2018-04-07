@@ -1,0 +1,212 @@
+.navbar {
+  height: 46px;
+}
+
+.navbar-toggler {
+  margin-bottom: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
+}
+
+#introImage {
+  margin-top: 30px;
+}
+
+.jumbotron {
+  height: 100vh;
+  border-radius: 0px;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  margin-bottom: 0;
+  background-color: #fff;
+  background-image: url('img/machine_learning.jpg');
+  background-size: cover;
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 200;
+  color: white;
+}
+
+.jumbotron .container {
+  max-width: 65rem;
+}
+
+.algorithm {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #F9F9F9;
+}
+
+.card {
+  float: left;
+  width: 31%;
+  padding: 1rem;
+  margin: 5px;
+}
+
+.card > img {
+  margin-bottom: .75rem;
+  max-width: 100%;
+}
+
+.card-text {
+  font-size: 85%;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #000;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+.lead {
+  color: white;
+  font-size: 18pt;
+}
+
+body {
+  background: #fff;
+}
+
+h1 {
+  font-size: 60pt;
+}
+
+/* a {
+  margin: 5px;
+} */
+
+.alg-header h1 {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  font-size: 30pt;
+  color: black;
+}
+
+.alg-header a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  width: 30%;
+}
+
+.alg-header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  border-radius: 8px;
+  background-color: #EEAC27;
+  color: white;
+  margin-bottom: 25px;
+}
+
+.next {
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  width: 300px;
+}
+
+.alg-intro {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.alg-intro h3 {
+  margin-bottom: 20px;
+  color: black;
+}
+
+.alg-intro h5 {
+  margin-bottom: 20px;
+}
+
+.alg-intro h6 {
+  margin-bottom: 10px;
+}
+
+.alg-intro p {
+  margin-bottom: 30px;
+}
+
+.alg-visual {
+  margin: auto;
+  width: 75%;
+  height: auto;
+  margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.alg-analysis {
+  margin: 0 auto;
+  width: 75%;
+  height: 100vh;
+}
+
+.list-unstyled p {
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+#boxes {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+h2 {
+  display: inline;
+}
+
+
+.graph .labels.x-labels {
+  text-anchor: middle;
+}
+
+.graph .labels.y-labels {
+  text-anchor: end;
+}
+
+
+.graph {
+  height: 550px;;
+  width: 800px;
+}
+
+.graph .grid {
+  stroke: #ccc;
+  stroke-dasharray: 0;
+  stroke-width: 2;
+}
+
+.labels {
+  font-size: 15px;
+}
+
+.label-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  fill: black;
+}
+
+.svg circle {
+  fill: red;
+  stroke-width: 2;
+}
