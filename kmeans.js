@@ -1,6 +1,6 @@
 // https://stackoverflow.com/questions/16488884/add-svg-element-to-existing-svg-using-dom
 var points = [];
-for (var i = 0; i < 5000; i++) {
+for (var i = 0; i < 1000; i++) {
   points.push([Math.floor(Math.random() * 500) + 130, Math.floor(Math.random() * 460) + 20]);
 
 }
@@ -65,7 +65,6 @@ function dataAssignment(points, allClusters, redCluster, blueCluster, greenClust
       console.log(allClusters[cluster][0].length);
       var len = allClusters[cluster][0].length;
       allClusters[cluster][0].splice(0,len);
-      // console.log(allClusters[cluster].length);
     }
   }
   console.log("===========================");
@@ -85,25 +84,17 @@ function dataAssignment(points, allClusters, redCluster, blueCluster, greenClust
     if (redDistance < blueDistance && redDistance < greenDistance) {
       document.getElementById(point).style.fill='red';
       redCluster.push([points[point][0], points[point][1]]);
-      // console.log("RED");
-      // console.log(redCluster);
     }
     else if (blueDistance < redDistance && blueDistance < greenDistance) {
       document.getElementById(point).style.fill='blue';
       blueCluster.push([points[point][0], points[point][1]]);
-      // console.log("BLUE");
-      // console.log(blueCluster);
     }
     else if (greenDistance < blueDistance && greenDistance < redDistance) {
       document.getElementById(point).style.fill='green';
       greenCluster.push([points[point][0], points[point][1]]);
-      // console.log("GREEN");
-      // console.log(greenCluster);
     }
   }
 }
-
-
 
 function updateCentroid(clusters, clusterColor, allClusters, colors) {
   for (cluster in clusters) {
@@ -117,6 +108,7 @@ function updateCentroid(clusters, clusterColor, allClusters, colors) {
       clusterY += allClusters[cluster][0][point][1];
       clusterPoints +=1;
     }
+
     clusterXMean = clusterX / clusterPoints;
     clusterYMean = clusterY / clusterPoints;
 
@@ -131,11 +123,7 @@ function updateCentroid(clusters, clusterColor, allClusters, colors) {
         duration: 500,
       },
     });
-
     clusters[cluster][0] = clusterXMean;
     clusters[cluster][1] = clusterYMean;
-
-    // clusterColor[cluster].setAttributeNS(null, 'cx', clusterXMean);
-    // clusterColor[cluster].setAttributeNS(null, 'cy', clusterYMean);
   }
 }
