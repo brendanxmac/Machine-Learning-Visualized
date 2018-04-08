@@ -113,7 +113,8 @@
     </div>
     <br><br>
 
-    <button onclick="updateCentroid(clusters, clusterColor, allClusters)">Update Centroids</button>
+    <button onclick="dataAssignment(points, allClusters, redCluster, blueCluster, greenCluster)"><strong>Step 1:</strong> Data Assignment</button>
+    <button onclick="updateCentroid(clusters, clusterColor, allClusters, colors)"><strong>Step 2:</strong> Centroid Update</button>
     <br><br>
     <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" id="graph" aria-labelledby="title" role="img">
       <title id="title">K Means Algorithm in Action</title>
