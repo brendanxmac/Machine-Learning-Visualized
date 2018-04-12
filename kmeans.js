@@ -1,17 +1,11 @@
 // https://stackoverflow.com/questions/16488884/add-svg-element-to-existing-svg-using-dom
+var numPoints = 500;
 var points = [];
-for (var i = 0; i < 1000; i++) {
+for (var i = 0; i < numPoints; i++) {
   points.push([Math.floor(Math.random() * 500) + 130, Math.floor(Math.random() * 460) + 20]);
 
 }
 
-// Example Data Set Creation 2D array
-// var points = [
-//   [140, 400],[160, 420],[190, 450],[170, 453],[220, 320],[180, 290],[140, 440],
-//   [160, 300],[180, 340],[190, 380],[320, 159],[350, 99],[370, 106],[370, 200],
-//   [350, 200],[290, 167],[255, 135],[270, 180],[359, 167],[375, 59],[531, 290],
-//   [501, 320],[491, 422],[477, 378],[404, 357],[420, 440],[455, 400],[545, 350],
-//   [501, 390],[515, 280]];
 
 var svgns = "http://www.w3.org/2000/svg";
 var container = document.getElementById('graph');
@@ -36,6 +30,7 @@ var clusters = [
 var clusterRed = document.createElementNS(svgns, 'circle');
 var clusterBlue = document.createElementNS(svgns, 'circle');
 var clusterGreen = document.createElementNS(svgns, 'circle');
+
 var colors = ['red', 'blue', 'green'];
 var clusterColor = [];
 clusterColor.push(clusterRed, clusterBlue, clusterGreen);
@@ -62,13 +57,10 @@ function dataAssignment(points, allClusters, redCluster, blueCluster, greenClust
   //CLEAR OUT ALL OLD DATA
   for (cluster in allClusters) {
     if (allClusters[cluster][0].length > 1) {
-      console.log(allClusters[cluster][0].length);
       var len = allClusters[cluster][0].length;
       allClusters[cluster][0].splice(0,len);
     }
   }
-  console.log("===========================");
-  console.log("===========================");
 
   for (point in points) {
     // Euclidean Distance to red group
@@ -94,6 +86,12 @@ function dataAssignment(points, allClusters, redCluster, blueCluster, greenClust
       greenCluster.push([points[point][0], points[point][1]]);
     }
   }
+
+  for (cluster in allClusters) {
+    if (allClusters[cluster][0].length > 1) {
+      document.getElementById(colors[cluster] + "Value").innerHTML = allClusters[cluster][0].length + " ( " + (allClusters[cluster][0].length/numPoints).toFixed(2) + "% )" + "&emsp;&emsp;";
+    }
+  }
 }
 
 function updateCentroid(clusters, clusterColor, allClusters, colors) {
@@ -108,7 +106,6 @@ function updateCentroid(clusters, clusterColor, allClusters, colors) {
       clusterY += allClusters[cluster][0][point][1];
       clusterPoints +=1;
     }
-
     clusterXMean = clusterX / clusterPoints;
     clusterYMean = clusterY / clusterPoints;
 
@@ -116,12 +113,12 @@ function updateCentroid(clusters, clusterColor, allClusters, colors) {
       targets: '#' + colors[cluster],
       cx: {
         value: clusterXMean,
-        duration: 500,
+        duration: 500
       },
       cy: {
         value: clusterYMean,
-        duration: 500,
-      },
+        duration: 500
+      }
     });
     clusters[cluster][0] = clusterXMean;
     clusters[cluster][1] = clusterYMean;
