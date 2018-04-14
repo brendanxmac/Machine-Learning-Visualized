@@ -1,9 +1,8 @@
 // https://stackoverflow.com/questions/16488884/add-svg-element-to-existing-svg-using-dom
-var numPoints = 500;
+var numPoints = 2000;
 var points = [];
 for (var i = 0; i < numPoints; i++) {
   points.push([Math.floor(Math.random() * 500) + 130, Math.floor(Math.random() * 460) + 20]);
-
 }
 
 
