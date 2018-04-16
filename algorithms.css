@@ -1,9 +1,9 @@
 .navbar {
-  height: 100px;
+  height: 60px;
 }
 
 .navbar-brand {
-  font-size:25pt;
+  font-size:18pt;
 }
 
 img {
@@ -17,9 +17,10 @@ img {
 }
 
 .abstract {
-  width: 80%;
+  width: 60%;
   margin-left: 10%;
   margin-right: 10%;
+  font-weight: 300;
 }
 
 .jumbotron {

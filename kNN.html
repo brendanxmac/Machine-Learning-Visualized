@@ -60,11 +60,6 @@
 
     <div align="center">
       <br><br><br>
-      <div id="clusterText">
-        <!-- <p align="left" id="redValue"><strong>Red Cluster</strong>&emsp;&emsp;</p>
-        <p align="left" id="blueValue"><strong>Blue Cluster</strong>&emsp;&emsp;</p>
-        <p align="left" id="greenValue"><strong>Green Cluster</strong>&emsp;&emsp;</p> -->
-      </div>
       <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" id="graph" aria-labelledby="title" role="img">
         <title id="title">K Nearest Neighbors in Action</title>
         <g class="grid x-grid" id="xGrid">
@@ -79,21 +74,25 @@
           <text x="350" y="520">20</text>
           <text x="475" y="520">30</text>
           <text x="600" y="520">40</text>
-          <text x="350" y="540" class="label-title">Purchases Per Month</text>
+          <text x="350" y="540" class="label-title">X Axis</text>
         </g>
         <g class="labels y-labels">
           <text x="80" y="15">80</text>
           <text x="80" y="131">60</text>
           <text x="80" y="248">40</text>
           <text x="80" y="373">20</text>
-          <text x="50" y="200" class="label-title">Age</text>
+          <text x="50" y="200" class="label-title">Y Axis</text>
         </g>
         <g class="data" data-setname="K Nearest Neighbors Data Set"></g>
       </svg>
 
+      <br><br>
+      <button onclick="addNewSample()"><strong>Plot New Sample</strong></button>
+      <button onclick="classifySample()"><strong>Classify Sample</strong></button>
+
       <div class="abstract">
         <br><br>
-        <h3><i>Each new data point can be thought of as a new neighbor in a neighborhood. The new neighbor is most similar to their nearest neighbors based on some qualities</i></h3>
+        <h3><i>Each new sample (data point) can be thought of as a new neighbor. The new neighbor is most similar to their nearest neighbors based on some particular qualities</i></h3>
       </div>
       <br><br><br><br>
     </div>

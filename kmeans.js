@@ -16,7 +16,7 @@ for (point in points) {
   newPoint.setAttributeNS(null, 'cx', points[point][0]);
   newPoint.setAttributeNS(null, 'cy', points[point][1]);
   newPoint.setAttributeNS(null, 'r', 4);
-  newPoint.setAttributeNS(null, 'style', 'fill: black; stroke-width: 2px; fill-opacity: 0.3;');
+  newPoint.setAttributeNS(null, 'style', 'fill: black; fill-opacity: 0.3;');
   graph.appendChild(newPoint);
 }
 
@@ -40,7 +40,7 @@ for (cluster in clusterColor) {
   clusterColor[cluster].setAttributeNS(null, 'cx', clusters[cluster][0] );
   clusterColor[cluster].setAttributeNS(null, 'cy', clusters[cluster][1]);
   clusterColor[cluster].setAttributeNS(null, 'r', 22);
-  clusterColor[cluster].setAttributeNS(null, 'style', 'fill: ' + colors[cluster] + '; stroke-width: 3px; fill-opacity: 0.8;');
+  clusterColor[cluster].setAttributeNS(null, 'style', 'fill: ' + colors[cluster] + '; fill-opacity: 0.8;');
   graph.appendChild(clusterColor[cluster])
 }
 
