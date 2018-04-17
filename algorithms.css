@@ -171,6 +171,12 @@ h1 {
   margin-bottom: 5px;
 }
 
+.intro-content {
+  margin-left: 15%;
+  margin-right: 15%;
+  width: 70%;
+}
+
 #boxes {
   width: 80%;
   margin: auto;

@@ -1,11 +1,15 @@
 
-var numPoints = 10;
+var numPoints = 30;
 var points = [];
 var purplePoints = [];
 var greenPoints = [];
 var new_point_classified = true;
 var new_point_created = false;
 var cur_num_of_points = 0;
+var k_nearest_neighbors = [];
+var classify_point = -1;
+var purpleTally = 0;
+var greenTally = 0;
 var k = 3;
 
 // green points
@@ -42,6 +46,21 @@ function addNewSample() {
   if (new_point_classified == false) {
     alert("Classify the new sample before you add another");
   } else {
+    if (classify_point != -1) {
+      if (purpleTally > greenTally) {
+        classify_point.setAttributeNS(null, 'style', 'fill: purple; fill-opacity: .9;');
+        classify_point.setAttributeNS(null, 'dataColor', 'purple');
+        classify_point.setAttributeNS(null, 'r', 5);
+      } else {
+        classify_point.setAttributeNS(null, 'style', 'fill: green; fill-opacity: .9;');
+        classify_point.setAttributeNS(null, 'dataColor', 'green');
+        classify_point.setAttributeNS(null, 'r', 5);
+      }
+    }
+    for (neighbor in k_nearest_neighbors) {
+      var close_neighbor = document.getElementById(k_nearest_neighbors[neighbor]);
+      close_neighbor.setAttributeNS(null, 'r', 5);
+    }
     new_point_classified = false;
     new_point_created = true;
     points.push([Math.floor(Math.random() * 500) + 130, Math.floor(Math.random() * 460) + 20]);
@@ -51,14 +70,14 @@ function addNewSample() {
     newPoint.setAttributeNS(null, 'id', cur_num_of_points);
     newPoint.setAttributeNS(null, 'cx', points[cur_num_of_points][0]);
     newPoint.setAttributeNS(null, 'cy', points[cur_num_of_points][1]);
-    newPoint.setAttributeNS(null, 'r',12);
+    newPoint.setAttributeNS(null, 'r',5);
     newPoint.setAttributeNS(null, 'style', 'fill: orange; fill-opacity: .9;');
     graph.appendChild(newPoint);
   }
 }
 
 function classifySample() {
-  var k_nearest_neighbors = [];
+  k_nearest_neighbors = [];
   var nearest_point;
   var cur_nearest_distance_away = 1000;
   if (new_point_created == false) {
@@ -82,33 +101,21 @@ function classifySample() {
       }
     k_nearest_neighbors[i] = nearest_point;
     cur_nearest_distance_away = 1000;
-    // console.log(nearest_point);
-    // console.log(k_nearest_neighbors);
     }
-    var purpleTally = 0;
-    var greenTally = 0;
+    purpleTally = 0;
+    greenTally = 0;
     for (point in k_nearest_neighbors) {
-      console.log(k_nearest_neighbors[point]);
-      console.log(document.getElementById(k_nearest_neighbors[point]).getAttribute('dataColor'));
-      if (document.getElementById(k_nearest_neighbors[point]).getAttribute('dataColor') == "purple") {
+      var close_neighbor = document.getElementById(k_nearest_neighbors[point]);
+      close_neighbor.setAttributeNS(null, 'r', 10);
+      if (close_neighbor.getAttribute('dataColor') == "purple") {
         purpleTally += 1;
       } else {
         greenTally += 1;
       }
     }
 
-    console.log("Purple: " + purpleTally);
-    console.log("Green: " + greenTally);
+    classify_point = document.getElementById(cur_num_of_points);
 
-    var classify_point = document.getElementById(cur_num_of_points);
-
-     if (purpleTally > greenTally) {
-       classify_point.setAttributeNS(null, 'style', 'fill: purple; fill-opacity: .9;');
-       classify_point.setAttributeNS(null, 'dataColor', 'purple');
-     } else {
-       classify_point.setAttributeNS(null, 'style', 'fill: green; fill-opacity: .9;');
-       classify_point.setAttributeNS(null, 'dataColor', 'green');
-     }
     new_point_classified = true;
     new_point_created = false;
   }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>MLV: Introduction</title>
+  <title>Machine Learning Visualized</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,109 +55,114 @@
 
   <br><br>
   <div class="alg-intro">
-    <h1 align="center">Introduction to Machine Learning</h1>
-    <br><br>
-    <div align="center">
+    <h1 align="center">Machine Learning 101</h1>
+    <div align="center" class="intro-content">
       <img src="img/MLvstraditional.png" alt="Machine Learning vs. Traditional Programming">
       <br>
       <small>Source: https://machinelearningmastery.com/basic-concepts-in-machine-learning/</small>
+      <br><br>
+      <p><i>Note: In machine learning, the input is data (and sometimes expected output), and the actual output is <strong>a program</strong> that learned something about the data and can be fed new data to make better decisions</i></p>
+      <br>
+    </div>
+    <br>
+    <div class="intro-content">
+      <h2><strong>What is Machine Learning?</strong></h2>
+      <br><br><br><br><br>
+      <h4><i>Machine learning is a field of computer science that uses statistical techniques to give computer systems the ability to "learn" (i.e., progressively improve performance on a specific task) with data, without being explicitly programmed.</i></h4>
+      <small><a href="https://en.wikipedia.org/wiki/Machine_learning"> - https://en.wikipedia.org/wiki/Machine_learning</a></small>
+      <br><br><br><br>
+      <img src="img/machine-learning-process.png" alt="">
       <br><br><br>
-    </div>
-    <br>
-    <h2><strong>What is Machine Learning?</strong></h2>
-    <br><br><br>
-    <h4><strong>Machine learning is software written by a programmer, just like any other code.</strong></h4><br>
-    <h5>It is software that 'learns': <u>by collecting data and running an algorithm on that data.</u>.</h5>
-    <ul>
-      <h6><li>Machine learning involves the development of computer programs that look at data and learn from it.</li></h6>
-      <h6><li>Four different types of machine learning exist: supervised, unsupervised, semi-supervised, and reinforcement learning.</li></h6>
-      <h6><li>Machine Learning has the ability to make correlations that humans might not be able to make on their own, as well as process and analyze huge sets of data.</li></h6>
-    </ul>
-    <p><i>Note: In machine learning, the input is data (and sometimes expected output), and the actual output is <strong>a program</strong> that learned something about the data (and sometimes expected output) that can then be fed more data to make better predictions
-    when fed more input</i></p>
-
-    <hr><br>
-
-    <h2><strong>Types of Machine Learning</strong></h2><br><br><br>
-
-    <h3 id="supervised" name="supervised"><strong>Supervised Learning</strong></h3>
-    <p>In supervised learning there are input varaibles (such as x,m,n) and output variables (think Y). An algorithm is used to try to understand the mapping function from the input to the output.If this is done successfully, new input variables (x,m,n..)
-      can be entered into the algorithm, and have a high chance of predicting the output (Y)</p>
-    <p><strong>Plain English: We feed the algorithm input (data) as well as desired output, and while processing the data the algorithm becomes 'smart' and able to make a connection between input and output.</strong> Think about a child flipping through
-      a picture book with a teacher. The teacher knows the answer to what each animal is, and the child gives their best guess for what each animal is. If the child guesses incorrectly, the teacher can correct them and over time the child will hopefully
-      learn
-    </p>
-    <h5><strong>Typical Supervised learning problems</strong></h5>
-    <p><strong>Classification:</strong> the output variable is categorical e.g. monkey, apple, bird, healthy, unhealthy, etc..</p>
-    <p><strong>Regression:</strong> the output variable is a value e.g. 13, $340.41, 65%, 0, 1, etc..</p>
-
-    <br><br>
-
-    <h3 id="unsupervised" name="unsupervised"><strong>Unsupervised Learning</strong></h3>
-    <p>Similar to supervised learning there are input varaibles (such as x,m,n), however there are <strong>no linked output variables</strong> This type of learning is used to better understand the shape and distribution of the data in order to learn more
-      about it. With unsupervised, there is no teacher and no correct answer. The point of this learning to to let the algorithm run in an attempt to discover and display something interesting (usually valuable) about the data</p>
-    <p><strong>Plain English: We feed the algorithm input (data) and hope it spits back something interesting that we might not have found on our own</strong></p>
-    <h5><strong>Typical Unsupervised learning problems</strong></h5>
-    <p><strong>Clustering:</strong> Find groups (clusters) within the data. That is, data that are more closely link to eachother than all other data points</p>
-    <p><strong>Association:</strong> Find connecitons within the data. e.g. people who bought a large popcorn had a x% chance of buying soda as well. </p>
-    <br>
-
-    <h3 id="reinforcement" name="reinforcement"><strong>Reinforcement Learning</strong></h3>
-    <p>Similar to supervised learning there are input varaibles (such as x,m,n), however there are <strong>no linked output variables</strong> This type of learning is used to better understand the shape and distribution of the data in order to learn more
-      about it. With unsupervised, there is no teacher and no correct answer. The point of this learning to to let the algorithm run in an attempt to discover and display something interesting (usually valuable) about the data</p>
-    <p><strong>Plain English: We feed the algorithm input (data) and hope it spits back something interesting that we might not have found on our own</strong></p>
-    <h5><strong>Typical Reinforcement learning problems</strong></h5>
-    <p><strong>Clustering:</strong> Find groups (clusters) within the data. That is, data that are more closely link to eachother than all other data points</p>
-    <p><strong>Association:</strong> Find connecitons within the data. e.g. people who bought a large popcorn had a x% chance of buying soda as well. </p>
-    <hr><br>
-
-    <h3><strong>Some examples:</strong></h3>
-    <div align="center">
-      <img src="img/MLVisual.png" alt="Types of Machine Learning">
-      <small>Source: http://www.cubicsol.com/machine-learning-algorithms/</small>
+      <h4>It is software that 'learns' by collecting data and running an algorithm on that data to achieve a certain outcome.</h4><br>
+      <h4>The development of computer programs that look at data and learn from it.</h4>
+      <br>
+      <h4>Three main types of machine learning exist: <strong>supervised, unsupervised, and reinforcement learning.</strong></h4>
+      <br>
+      <h4>Machine Learning has the ability to find correlations that humans might not be able to make on their own by processing and analyzing sets of data.</h4>
+      <br>
       <hr>
-      <img src="img/typesOfML.png" alt="Types of Machine Learning Expanded">
-      <small>Source: https://towardsdatascience.com/types-of-machine-learning-algorithms-you-should-know-953a08248861</small>
-      <hr>
-      <img src="img/MLUses.jpg" alt="Machine Learning Uses">
       <br>
-      <small>Source: https://readwrite.com/2016/11/09/machine-learning-used-pl1/</small>
+
+      <h2><strong>Types of Machine Learning</strong></h2><br><br><br>
+      <img src="img/machine-learning-hierarchy.jpg" alt="Machine Learning Hierarchy"><br><br><br>
+      <h3 id="supervised" name="supervised"><strong>1) Supervised Learning</strong></h3>
+      <p>In supervised learning there are input varaibles (such as x,m,n) and output variables (think Y). An algorithm is used to try to understand the mapping function from the input to the output.If this is done successfully, new input variables (x,m,n..)
+        can be entered into the algorithm, and have a high chance of predicting the output (Y)</p>
+      <p><strong>Plain English: We feed the algorithm input (data) as well as desired output, and while processing the data the algorithm becomes 'smart' and able to make a connection between input and output.</strong> Think about a child flipping through
+        a picture book with a teacher. The teacher knows the answer to what each animal is, and the child gives their best guess for what each animal is. If the child guesses incorrectly, the teacher can correct them and over time the child will hopefully
+        learn
+      </p>
+      <h5><strong>Typical Supervised learning problems</strong></h5>
+      <p><strong>Classification:</strong> the output variable is categorical e.g. monkey, apple, bird, healthy, unhealthy, etc..</p>
+      <p><strong>Regression:</strong> the output variable is a value e.g. 13, $340.41, 65%, 0, 1, etc..</p>
+
+      <br><br>
+
+      <h3 id="unsupervised" name="unsupervised"><strong>2) Unsupervised Learning</strong></h3>
+      <p>Similar to supervised learning there are input varaibles (such as x,m,n), however there are <strong>no linked output variables</strong> This type of learning is used to better understand the shape and distribution of the data in order to learn more
+        about it. With unsupervised, there is no teacher and no correct answer. The point of this learning to to let the algorithm run in an attempt to discover and display something interesting (usually valuable) about the data</p>
+      <p><strong>Plain English: We feed the algorithm input (data) and hope it spits back something interesting that we might not have found on our own</strong></p>
+      <h5><strong>Typical Unsupervised learning problems</strong></h5>
+      <p><strong>Clustering:</strong> Find groups (clusters) within the data. That is, data that are more closely link to eachother than all other data points</p>
+      <p><strong>Association:</strong> Find connecitons within the data. e.g. people who bought a large popcorn had a x% chance of buying soda as well. </p>
+      <br>
+
+      <h3 id="reinforcement" name="reinforcement"><strong>3) Reinforcement Learning</strong></h3>
+      <p>Similar to supervised learning there are input varaibles (such as x,m,n), however there are <strong>no linked output variables</strong> This type of learning is used to better understand the shape and distribution of the data in order to learn more
+        about it. With unsupervised, there is no teacher and no correct answer. The point of this learning to to let the algorithm run in an attempt to discover and display something interesting (usually valuable) about the data</p>
+      <p><strong>Plain English: We feed the algorithm input (data) and hope it spits back something interesting that we might not have found on our own</strong></p>
+      <h5><strong>Typical Reinforcement learning problems</strong></h5>
+      <p><strong>Clustering:</strong> Find groups (clusters) within the data. That is, data that are more closely link to eachother than all other data points</p>
+      <p><strong>Association:</strong> Find connecitons within the data. e.g. people who bought a large popcorn had a x% chance of buying soda as well. </p>
+      <hr><br>
+
+      <h3><strong>Some examples:</strong></h3>
+      <div align="center">
+        <img src="img/MLVisual.png" alt="Types of Machine Learning">
+        <small>Source: http://www.cubicsol.com/machine-learning-algorithms/</small>
+        <hr>
+        <img src="img/typesOfML.png" alt="Types of Machine Learning Expanded">
+        <small>Source: https://towardsdatascience.com/types-of-machine-learning-algorithms-you-should-know-953a08248861</small>
+        <hr>
+        <img src="img/MLUses.jpg" alt="Machine Learning Uses">
+        <br>
+        <small>Source: https://readwrite.com/2016/11/09/machine-learning-used-pl1/</small>
+      </div>
+
+      <br><br><br>
+
+      <h3><strong>Math Involved</strong></h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <img src="img/MLMath.png" alt="Machine Learning Math"> <br>
+      <small align="center">Source: https://towardsdatascience.com/the-mathematics-of-machine-learning-894f046c568</small>
+      <br>
+      <hr><br><br>
+      <h3 id="resources" name="resources"><strong>Learn More About Machine Learning</strong></h3>
+      <br>
+      <ul class="list-unstyled">
+        <li>
+          <h5><a href="https://machinelearningmastery.com/start-here/#getstarted">Machine Learning Mastery</a></h5></li>
+        <li>A robust blog written by Jason Brownlee who has studied and has a few degrees in artificial intelligence.</li>
+        <br>
+        <li>
+          <h5><a href="https://www.youtube.com/watch?v=IpGxLWOIZy4">A Friendly Introduction to Machine Learning</a></h5></li>
+        <li>A 30 minute Youtube video that does an excelent job easing anybody into Machine Learning without any math.</li>
+        <br>
+        <li>
+          <h5><a href="https://www.analyticsvidhya.com/blog/2017/09/common-machine-learning-algorithms/">Essentials of Machine Learning Algorithms</a></h5></li>
+        <li>Crafted by Ray Sunil, this is a great resource to learn the basics about machine learning algorithms</li>
+        <br>
+        <li>
+          <h5><a href="https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12">Machine Learning for Humans</a></h5></li>
+        <li>Simply put, Vishal Maini published a thoughtfully crafted article on Medium that supplies a begginers approach to machine learning. The article is lengthy but full of wonderfully intuitive chunks of machine learning knowledge</li>
+        <br>
+        <li>
+          <h5><a href="https://medium.freecodecamp.org/every-single-machine-learning-course-on-the-internet-ranked-by-your-reviews-3c4a7b8026c0">Every single Machine Learning course on the internet, ranked by your reviews</a></h5></li>
+        <li>This is an aritcle that takes an in depth look at different online courses about machine learning in order for students to make a choice between all the material if they want to look deeper into the subject</li>
+      </ul>
+
     </div>
-
-    <br><br><br>
-
-    <h3><strong>Math Involved</strong></h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <img src="img/MLMath.png" alt="Machine Learning Math"> <br>
-    <small align="center">Source: https://towardsdatascience.com/the-mathematics-of-machine-learning-894f046c568</small>
-
-    <br><br><br>
-
-    <h3 id="resources" name="resources"><strong>Learn More About Machine Learning</strong></h3>
-    <br>
-    <ul class="list-unstyled">
-      <li>
-        <h5><a href="https://machinelearningmastery.com/start-here/#getstarted">Machine Learning Mastery</a></h5></li>
-      <li>A robust blog written by Jason Brownlee who has studied and has a few degrees in artificial intelligence.</li>
-      <br>
-      <li>
-        <h5><a href="https://www.youtube.com/watch?v=IpGxLWOIZy4">A Friendly Introduction to Machine Learning</a></h5></li>
-      <li>A 30 minute Youtube video that does an excelent job easing anybody into Machine Learning without any math.</li>
-      <br>
-      <li>
-        <h5><a href="https://www.analyticsvidhya.com/blog/2017/09/common-machine-learning-algorithms/">Essentials of Machine Learning Algorithms</a></h5></li>
-      <li>Crafted by Ray Sunil, this is a great resource to learn the basics about machine learning algorithms</li>
-      <br>
-      <li>
-        <h5><a href="https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12">Machine Learning for Humans</a></h5></li>
-      <li>Simply put, Vishal Maini published a thoughtfully crafted article on Medium that supplies a begginers approach to machine learning. The article is lengthy but full of wonderfully intuitive chunks of machine learning knowledge</li>
-      <br>
-      <li>
-        <h5><a href="https://medium.freecodecamp.org/every-single-machine-learning-course-on-the-internet-ranked-by-your-reviews-3c4a7b8026c0">Every single Machine Learning course on the internet, ranked by your reviews</a></h5></li>
-      <li>This is an aritcle that takes an in depth look at different online courses about machine learning in order for students to make a choice between all the material if they want to look deeper into the subject</li>
-    </ul>
-
   </div>
 
   <br><br>

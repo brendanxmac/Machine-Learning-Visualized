@@ -5,7 +5,6 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <!-- Custom styles for this template -->
@@ -21,15 +20,12 @@
         <div class="row">
           <div class="col-sm-8 py-4">
             <h4 class="text-white">About</h4>
-            <p class="text-muted">Each algorithm listed below and to the side contains an introduction, an abstracted explanation, a visual representation, and an in depth analysis. You can jump from one algorithm to another without going to the directory page by simply using
-              this navigational dropdown and choosing the next one to view. Finally if you would like to go back to the introduction or find more learning resources you can find the links right below this text. </p>
-            <ul class="list-unstyled">
-              <li><a href="introduction.html" class="text-white">Introduction to Machine Learning</a></li>
-              <li><a href="algorithms.html" class="text-white">Algorithms</a></li>
-            </ul>
+            <p class="text-muted">Each algorithm listed to the side contains an introduction, an abstracted explanation, a visual representation, and an in depth analysis. You can jump from one algorithm to another without going to the directory page by simply using this navigational
+              dropdown and choosing the next one to view. Finally if you would like to go to the introduction and find more learning resources you can find those below the algorithms to the right. We hope you enjoy the site and if you have any suggestions
+              or comments please feel free to email bmcla435@mail.endicott.edu </p>
           </div>
           <div class="col-sm-4 py-4">
-            <h4 class="text-white">Algorithms</h4>
+            <h4><a href="algorithms.html" class="text-white">Algorithms</a></h4>
             <ul class="list-unstyled">
               <li><a href="kMeans.html" class="text-white">k Means</a></li>
               <li><a href="kNN.html" class="text-white">kNN</a></li>
@@ -38,13 +34,16 @@
               <li><a href="logistic_reg.html" class="text-white">Logistic Regression</a></li>
               <li><a href="neural_net.html" class="text-white">Neural Network</a></li>
             </ul>
+            <br>
+            <h4><a href="introduction.html" class="text-white">Introduction</a></h4>
+            <h4><a href="introduction.html#resources" class="text-white">Learn More</a></h4>
           </div>
         </div>
       </div>
     </div>
     <div class="navbar navbar-dark" style="background-color: #212121;">
       <div class="container d-flex justify-content-between">
-        <a href="index.html" class="navbar-brand">Machine Learning Visualized</a>
+        <h2><a href="index.html" class="navbar-brand">Machine Learning Visualized</a></h2>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -52,48 +51,108 @@
     </div>
   </header>
 
-  <div class="alg-header" align="center">
-    <h1 align="center">Linear Regression</h1>
-    <a href="svm.html" class="previous">&laquo; Support Vector Machine</a>
-    <a href="logistic_reg.html" class="next">Logistic Regression &raquo;</a>
-  </div>
 
-  <div class="alg-intro">
-    <h3>Introduction</h3>
-    <h5><strong>Learning Type:</strong> Unsupervised</h5>
-    <h6><strong>In a Nutshell</strong></h6>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <h6><strong>Abstract Explanation</strong></h6>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
+  <div class="content">
+    <br><br>
+    <div align="center" class="opener">
+      <h1>Linear Regression</h1>
+    </div>
 
-  <div class="alg-visual">
-    <h3>Algorithm Execution</h3>
-  </div>
+    <div align="center">
+      <br><br><br>
+      <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" id="graph" aria-labelledby="title" role="img">
+        <title id="title">Linear Regression in Action</title>
+        <g class="grid x-grid" id="xGrid">
+          <line x1="100" x2="100" y1="0" y2="500"></line>
+        </g>
+        <g class="grid y-grid" id="yGrid">
+          <line x1="100" x2="600" y1="500" y2="500"></line>
+        </g>
+        <g class="labels x-labels">
+          <text x="100" y="520">0</text>
+          <text x="225" y="520">125</text>
+          <text x="350" y="520">250</text>
+          <text x="475" y="520">375</text>
+          <text x="600" y="520">500</text>
+          <text x="350" y="540" class="label-title">X Axis</text>
+        </g>
+        <g class="labels y-labels">
+          <text x="80" y="15">500</text>
+          <text x="80" y="125">375</text>
+          <text x="80" y="250">250</text>
+          <text x="80" y="375">125</text>
+          <text x="50" y="200" class="label-title">Y Axis</text>
+        </g>
+        <g class="data" data-setname="K Nearest Neighbors Data Set"></g>
+      </svg>
 
-  <div class="alg-analysis">
+      <br><br>
+      <!-- <button onclick="addNewSample()"><strong>Plot New Sample</strong></button>
+      <button onclick="classifySample()"><strong>Classify Sample</strong></button> -->
+
+      <div class="abstract">
+        <br><br>
+        <h3><i>THINK OF AN ABSTRACTION FOR THIS</i></h3>
+      </div>
+      <br><br><br><br>
+    </div>
+
+    <div class="alg-visual">
+      <h1><strong>The Algorithm</strong></h1>
+      <br><br>
+      <div align="left" class="alg-steps">
+        <ul class="list-unstyled">
+          <h3><li><strong>Input:</strong></li></h3>
+          <ul>
+            <h5><li><strong>K</strong><small> (# of clusters)</small></li></h5>
+            <h5><li>A data set</li></h5>
+          </ul>
+          <br>
+          <h3><li><strong>Setup - </strong>Randomly generate starting positions for the K many centriods</li></h3>
+          <br>
+          <h3><li><strong>Data Assignment:</strong> Assign each datapoint to the nearest centroid</li></h3>
+          <br>
+          <h3><li><strong>Centroid Update:</strong> For each centroid, calculate the mean distance of all data points assigned to it, update centroid location to mean location</li></h3>
+          <br>
+          <h3><li><strong>Repeat Steps 1 and 2 until centroids no longer update</strong></li></h3>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alg-intro">
+      <br><br><br><br>
+      <h1><strong>In a Nutshell</strong></h1>
+      <br><br>
+      <h4><strong>Category</strong></h4>
+      <h5><i><a href="introduction.html#unsupervised">Unsupervised Learning</a>- Data is not labeled</i></h5>
+      <h4><strong>Usage:</strong></h4>
+      <h5><i>Classification (Clustering) - Finding groups within the data</i></h5>
+      <br><br>
+      <ul>
+        <li>
+          <h5>K Means can be thought of as clustering data into K groups. </h5></li>
+        <li>
+          <h5>After the variable K is defined, (for example purposes we will use 3) The data that is already present will separate itself into K groups.</h5></li>
+        <li>
+          <h5>Thinking of this algorithm visually, it appears as if the data actually "reveals" itself into K groups.</h5></li>
+        <li>
+          <h5>For all Clustering algorithms remember, they are searching and exposing data groups based on certain qualities within the data.</h5></li>
+        <li>
+          <h5>Over each run of the algorithm the groups become more and more defined.</h5></li>
+      </ul>
+      <br><br>
+      <h4><strong>Similarities in qualities of certain data points compared to others create groups</strong></h4>
+    </div>
+
     <br><br><br>
-    <hr>
-    <h3>Algorithm Analysis</h3>
-    <br>
-    <h5><strong>Pros</strong></h5>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <h5><strong>Cons</strong></h5>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <h5><strong>Math Involved</strong></h5>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <br><br><br><br>
+    <div class="alg-header" align="center">
+      <a href="kMeans.html" class="previous"> K Nearest Neighbors</a>
+      <a href="svm.html" class="next">Logistic Regression</a>
+    </div>
   </div>
 
-  <br><br>
-  <div class="alg-header" align="center">
-    <a href="svm.html" class="previous">&laquo; Support Vector Machine</a>
-    <a href="logistic_reg.html" class="next">Logistic Regression &raquo;</a>
-  </div>
   <br><br>
 
   <footer class="text-muted">
@@ -104,7 +163,8 @@
       <p>Machine Learning Visualized &copy; is a 2017 thesis developed in 2017 for Endicott College by Brendan McLaughlin</p>
     </div>
   </footer>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+  <script src="linear_regression.js"></script>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
