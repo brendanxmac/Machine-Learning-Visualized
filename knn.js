@@ -46,6 +46,61 @@ function addNewSample() {
   if (new_point_classified == false) {
     alert("Classify the new sample before you add another");
   } else {
+    new_point_classified = false;
+    new_point_created = true;
+    points.push([Math.floor(Math.random() * 500) + 130, Math.floor(Math.random() * 460) + 20]);
+    cur_num_of_points = points.length-1;
+    console.log("Num of Points: " + cur_num_of_points);
+    var newPoint = document.createElementNS(svgns, 'circle');
+    newPoint.setAttributeNS(null, 'id', cur_num_of_points);
+    newPoint.setAttributeNS(null, 'cx', points[cur_num_of_points][0]);
+    newPoint.setAttributeNS(null, 'cy', points[cur_num_of_points][1]);
+    newPoint.setAttributeNS(null, 'r',15);
+    newPoint.setAttributeNS(null, 'style', 'fill: red; fill-opacity: 1;');
+    graph.appendChild(newPoint);
+  }
+}
+
+function findNearestNeighbors() {
+  k_nearest_neighbors = [];
+  var nearest_point;
+  var cur_nearest_distance_away = 1000;
+  // find k nearest points
+  for (var i = 0; i < k; i++) {
+    for (point in points) {
+      // NOT INSIDE NEAREST NEIGHBORS
+      if (k_nearest_neighbors[0] != point && k_nearest_neighbors[1] != point && k_nearest_neighbors[2] != point && points[point] != points[cur_num_of_points]) {
+        // CALCULATE DISTANCE AWAY
+        var distanceAway = Math.sqrt( (Math.pow(points[cur_num_of_points][0]-points[point][0],2))
+        + (Math.pow(points[cur_num_of_points][1]-points[point][1],2)));
+        // IF CLOSER THAN PREVIOUS UPDATE THAT POINT TO NEAREST
+        if (distanceAway < cur_nearest_distance_away) {
+          nearest_point = point;
+          cur_nearest_distance_away = distanceAway;
+        }
+      }
+    }
+  k_nearest_neighbors[i] = nearest_point;
+  cur_nearest_distance_away = 1000;
+  }
+  purpleTally = 0;
+  greenTally = 0;
+  for (point in k_nearest_neighbors) {
+    var close_neighbor = document.getElementById(k_nearest_neighbors[point]);
+    close_neighbor.setAttributeNS(null, 'r', 15);
+    if (close_neighbor.getAttribute('dataColor') == "purple") {
+      purpleTally += 1;
+    } else {
+      greenTally += 1;
+    }
+  }
+}
+
+function classifySample() {
+  if (new_point_created == false) {
+    alert("You have to add a new point before you can classify it.")
+  } else {
+    classify_point = document.getElementById(cur_num_of_points);
     if (classify_point != -1) {
       if (purpleTally > greenTally) {
         classify_point.setAttributeNS(null, 'style', 'fill: purple; fill-opacity: .9;');
@@ -57,64 +112,11 @@ function addNewSample() {
         classify_point.setAttributeNS(null, 'r', 5);
       }
     }
+
     for (neighbor in k_nearest_neighbors) {
       var close_neighbor = document.getElementById(k_nearest_neighbors[neighbor]);
       close_neighbor.setAttributeNS(null, 'r', 5);
     }
-    new_point_classified = false;
-    new_point_created = true;
-    points.push([Math.floor(Math.random() * 500) + 130, Math.floor(Math.random() * 460) + 20]);
-    cur_num_of_points = points.length-1;
-    console.log("Num of Points: " + cur_num_of_points);
-    var newPoint = document.createElementNS(svgns, 'circle');
-    newPoint.setAttributeNS(null, 'id', cur_num_of_points);
-    newPoint.setAttributeNS(null, 'cx', points[cur_num_of_points][0]);
-    newPoint.setAttributeNS(null, 'cy', points[cur_num_of_points][1]);
-    newPoint.setAttributeNS(null, 'r',5);
-    newPoint.setAttributeNS(null, 'style', 'fill: orange; fill-opacity: .9;');
-    graph.appendChild(newPoint);
-  }
-}
-
-function classifySample() {
-  k_nearest_neighbors = [];
-  var nearest_point;
-  var cur_nearest_distance_away = 1000;
-  if (new_point_created == false) {
-    alert("You have to add a new point before you can classify it.")
-  } else {
-    // find k nearest points
-    for (var i = 0; i < k; i++) {
-
-      for (point in points) {
-        // NOT INSIDE NEAREST NEIGHBORS
-        if (k_nearest_neighbors[0] != point && k_nearest_neighbors[1] != point && k_nearest_neighbors[2] != point && points[point] != points[cur_num_of_points]) {
-          // CALCULATE DISTANCE AWAY
-          var distanceAway = Math.sqrt( (Math.pow(points[cur_num_of_points][0]-points[point][0],2))
-          + (Math.pow(points[cur_num_of_points][1]-points[point][1],2)));
-          // IF CLOSER THAN PREVIOUS UPDATE THAT POINT TO NEAREST
-          if (distanceAway < cur_nearest_distance_away) {
-            nearest_point = point;
-            cur_nearest_distance_away = distanceAway;
-          }
-        }
-      }
-    k_nearest_neighbors[i] = nearest_point;
-    cur_nearest_distance_away = 1000;
-    }
-    purpleTally = 0;
-    greenTally = 0;
-    for (point in k_nearest_neighbors) {
-      var close_neighbor = document.getElementById(k_nearest_neighbors[point]);
-      close_neighbor.setAttributeNS(null, 'r', 10);
-      if (close_neighbor.getAttribute('dataColor') == "purple") {
-        purpleTally += 1;
-      } else {
-        greenTally += 1;
-      }
-    }
-
-    classify_point = document.getElementById(cur_num_of_points);
 
     new_point_classified = true;
     new_point_created = false;

@@ -80,7 +80,7 @@ function calculateLinearRegression() {
 
   // Plot Linear Regression Line
   y_int = (slope * x_max) + y_intercept;
-  createLine('linear_regression_line', 0, x_max, y_intercept, y_int, 'red', 1, 1, 10);
+  createLine('linear_regression_line', 0, x_max, y_intercept, y_int, 'red', 3, 1, 10);
 }
 function distanceFromDataToLine() {
   // Lines from data to linear regression line

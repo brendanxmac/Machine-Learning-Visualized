@@ -1,11 +1,3 @@
-.navbar {
-  height: 60px;
-}
-
-.navbar-brand {
-  font-size:18pt;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -29,22 +21,18 @@ img {
   padding-top: 6rem;
   padding-bottom: 6rem;
   margin-bottom: 0;
-  background-color: #fff;
   background-image: url('img/machine_learning.jpg');
   background-size: cover;
 }
 
-.jumbotron p:last-child {
-  margin-bottom: 0;
-}
-
 .jumbotron-heading {
+  font-size: 70pt;
   font-weight: 200;
-  color: white;
+  color: black;
 }
 
-.jumbotron .container {
-  max-width: 65rem;
+.jumbotron h4 {
+  color: black;
 }
 
 .algorithm {
@@ -70,13 +58,13 @@ img {
 }
 
 footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background-color: #000;
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: .2rem;
 }
 
 .lead {
@@ -84,9 +72,12 @@ footer p {
   font-size: 18pt;
 }
 
-body {
-  background: #fff;
+body h1 {
+  font-size: 50pt;
+  font-weight: 300;
 }
+
+
 
 .content {
   margin-left: 10%;
@@ -94,8 +85,8 @@ body {
   width: 80%;
 }
 
-h1 {
-  font-size: 60pt;
+.content h1 {
+  font-size: 45pt;
 }
 
 .alg-header h1 {
@@ -133,7 +124,7 @@ h1 {
 
 .alg-intro {
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
 }
 
 .alg-intro h3 {
@@ -208,7 +199,6 @@ h2 {
   display: inline;
 }
 
-
 .graph .labels.x-labels {
   text-anchor: middle;
 }
@@ -216,7 +206,6 @@ h2 {
 .graph .labels.y-labels {
   text-anchor: end;
 }
-
 
 .graph {
   height: 550px;;

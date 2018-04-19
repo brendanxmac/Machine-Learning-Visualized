@@ -11,63 +11,38 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <!-- Custom styles for this template -->
   <link href="algorithms.css" rel="stylesheet">
-
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Machine Learning Visualized</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active " href="introduction.html">Introduction</a>
+        <a class="nav-item nav-link" href="kMeans.html">K Means</a>
+        <a class="nav-item nav-link" href="kNN.html">KNN <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="linear_reg.html">Linear Regression</a>
+      </div>
+    </div>
+  </nav>
 </head>
 
 <body>
-
-  <header>
-    <div class="collapse bg-dark" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 py-4">
-            <h3 class="text-white">About</h3>
-            <p class="text-muted">Each algorithm listed to the side contains an introduction, an abstracted explanation, a visual representation, and an in depth analysis. You can jump from one algorithm to another without going to the directory page by simply using this navigational
-              dropdown and choosing the next one to view. Finally if you would like to go back to the introduction or the algorithms page explore the links below this text. </p>
-            <ul class="list-unstyled">
-              <li><a href="introduction.html" class="text-white">Introduction to Machine Learning</a></li>
-              <li><a href="algorithms.html" class="text-white">Algorithms page</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 py-4">
-            <h3 class="text-white">Algorithms</h3>
-            <ul class="list-unstyled">
-              <li><a href="kMeans.html" class="text-white">k Means</a></li>
-              <li><a href="kNN.html" class="text-white">kNN</a></li>
-              <li><a href="svm.html" class="text-white">SVM</a></li>
-              <li><a href="linear_reg.html" class="text-white">Linear Regression</a></li>
-              <li><a href="logistic_reg.html" class="text-white">Logistic Regression</a></li>
-              <li><a href="neural_net.html" class="text-white">Neural Network</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="navbar navbar-dark" style="background-color: #212121;">
-      <div class="container d-flex justify-content-between">
-        <a href="index.html" class="navbar-brand">Machine Learning Visualized</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      </div>
-    </div>
-  </header>
-
   <br><br>
   <div class="alg-intro">
-    <h1 align="center">Machine Learning 101</h1>
-    <div align="center" class="intro-content">
-      <img src="img/MLvstraditional.png" alt="Machine Learning vs. Traditional Programming">
-      <br>
-      <small>Source: https://machinelearningmastery.com/basic-concepts-in-machine-learning/</small>
-      <br><br>
-      <p><i>Note: In machine learning, the input is data (and sometimes expected output), and the actual output is <strong>a program</strong> that learned something about the data and can be fed new data to make better decisions</i></p>
-      <br>
-    </div>
+    <h1 align="center">Introduction to Machine Learning</h1>
     <br>
     <div class="intro-content">
-      <h2><strong>What is Machine Learning?</strong></h2>
-      <br><br><br><br><br>
+      <div align="center" class="intro-content">
+        <img src="img/MLvstraditional.png" alt="Machine Learning vs. Traditional Programming">
+        <br>
+        <small><small>Source: https://machinelearningmastery.com/basic-concepts-in-machine-learning/</small></small>
+        <br><br>
+        <p align="left"><i>Note: In machine learning, the input is data (and sometimes expected output), and the actual output is <strong>a program</strong> that learned something about the data and can be fed new data to make better decisions</i></p>
+        <br>
+      </div>
+      <h2>What is Machine Learning?</h2>
+      <br><br><br>
       <h4><i>Machine learning is a field of computer science that uses statistical techniques to give computer systems the ability to "learn" (i.e., progressively improve performance on a specific task) with data, without being explicitly programmed.</i></h4>
       <small><a href="https://en.wikipedia.org/wiki/Machine_learning"> - https://en.wikipedia.org/wiki/Machine_learning</a></small>
       <br><br><br><br>
@@ -168,10 +143,7 @@
   <br><br>
 
   <footer class="text-muted">
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Back to top</a>
-      </p>
+    <div align="center" class="container">
       <p>Machine Learning Visualized &copy; is a 2017 thesis developed in 2017 for Endicott College by Brendan McLaughlin</p>
     </div>
   </footer>
