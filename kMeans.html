@@ -36,7 +36,7 @@
     </div>
 
     <div align="center">
-      <br><br><br>
+      <br>
       <div id="clusterText">
         <p align="left" id="redValue"><strong>Red Cluster</strong>&emsp;&emsp;</p>
         <p align="left" id="blueValue"><strong>Blue Cluster</strong>&emsp;&emsp;</p>
@@ -68,50 +68,55 @@
         <g class="data" data-setname="K Means Example Data Set"></g>
       </svg>
       <br>
-      <button onclick="dataAssignment(points, allClusters, redCluster, blueCluster, greenCluster)"><strong>Data Assignment</strong></button>
-      <button onclick="updateCentroid(clusters, clusterColor, allClusters, colors)"><strong>Centroid Update</strong></button>
+      <button class="btn btn-danger" onclick="dataAssignment(points, allClusters, redCluster, blueCluster, greenCluster)"><strong>Data Assignment</strong></button>
+      <button class="btn btn-info" onclick="updateCentroid(clusters, clusterColor, allClusters, colors)"><strong>Centroid Update</strong></button>
       <br><br><br>
-      <h6><strong>Directions: Click on data assignment followed by centroid update until the values stop changing</strong></h6>
-      <h6><strong>Refesh the page for a new data set and new centroid starting locations</strong></h6><br>
+      <h6><strong>Directions: Click on data assignment followed by centroid update until the values stop changing. Refesh the page for a new data set and new centroid starting locations</strong></h6>
       <h6>The animation above shows K Means Clustering where K = 3 for a dataset of 500 randomly placed points</h6>
       <br><br><br><br>
       <div class="abstract">
-        <h3><i>Each hidden data cluster can be thought of as a planet with a gravitational pull. The cluster will pull the nearest centroid closer to the center of it each step of the algorithm.</i></h3>
+        <hr>
+        <br><br>
+        <h1><i>Each hidden data cluster can be thought of as a planet with a gravitational pull. The cluster will pull the nearest centroid closer to the center of it each step of the algorithm.</i></h1>
+        <br><br>
+        <hr>
       </div>
       <br><br><br><br>
     </div>
 
     <div class="alg-visual">
-      <h1><strong>The Algorithm</strong></h1>
+      <h1 align="center"><strong>The Algorithm</strong></h1>
       <br><br>
       <div align="left" class="alg-steps">
         <ul class="list-unstyled">
-          <h3><li><strong>Input:</strong></li></h3>
+          <h3><li>Input:</li></h3>
           <ul>
             <h5><li><strong>K</strong><small> (# of clusters)</small></li></h5>
             <h5><li>A data set</li></h5>
           </ul>
           <br>
-          <h3><li><strong>Setup - </strong>Randomly generate starting positions for the K many centriods</li></h3>
+          <h4><li><strong>Setup - </strong>Randomly generate starting positions for the K many centriods</li></h4>
           <br>
-          <h3><li><strong>Data Assignment:</strong> Assign each datapoint to the nearest centroid</li></h3>
+          <h4><li><strong>Data Assignment:</strong> Assign each datapoint to the nearest centroid</li></h4>
           <br>
-          <h3><li><strong>Centroid Update:</strong> For each centroid, calculate the mean distance of all data points assigned to it, update centroid location to mean location</li></h3>
+          <h4><li><strong>Centroid Update:</strong> For each centroid, calculate the mean distance of all data points assigned to it, update centroid location to mean location</li></h4>
           <br>
-          <h3><li><strong>Repeat Steps 1 and 2 until centroids no longer update</strong></li></h3>
+          <h4><li><strong>Repeat data assignment and centroid update until centroids no longer update</strong></li></h4>
         </ul>
       </div>
+      <br><br>
+      <hr>
     </div>
 
     <div class="alg-intro">
-      <br><br><br><br>
-      <h1><strong>In a Nutshell</strong></h1>
       <br><br>
+      <h1 align="center"><strong>In a Nutshell</strong></h1>
+      <br><br><br>
       <h4><strong>Category</strong></h4>
       <h5><i><a href="introduction.html#unsupervised">Unsupervised Learning</a>- Data is not labeled</i></h5>
       <h4><strong>Usage:</strong></h4>
       <h5><i>Classification (Clustering) - Finding groups within the data</i></h5>
-      <br><br>
+      <br>
       <ul>
         <li>
           <h5>K Means can be thought of as clustering data into K groups. </h5></li>

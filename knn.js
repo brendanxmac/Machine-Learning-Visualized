@@ -56,7 +56,7 @@ function addNewSample() {
     newPoint.setAttributeNS(null, 'cx', points[cur_num_of_points][0]);
     newPoint.setAttributeNS(null, 'cy', points[cur_num_of_points][1]);
     newPoint.setAttributeNS(null, 'r',15);
-    newPoint.setAttributeNS(null, 'style', 'fill: red; fill-opacity: 1;');
+    newPoint.setAttributeNS(null, 'style', 'fill: orange; fill-opacity: 1;');
     graph.appendChild(newPoint);
   }
 }
