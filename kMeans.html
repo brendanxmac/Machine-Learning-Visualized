@@ -22,6 +22,8 @@
         <a class="nav-item nav-link active" href="kmeans.html">K Means <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="knn.html">KNN</a>
         <a class="nav-item nav-link" href="linear_regression.html">Linear Regression</a>
+        <a class="nav-item nav-link" href="logistic_regression.html">Logistic Regression</a>
+        <a class="nav-item nav-link" href="naive_bayes.html">Naive Bayes</a>
       </div>
     </div>
   </nav>
@@ -36,7 +38,6 @@
     </div>
 
     <div align="center">
-      <br>
       <div id="clusterText">
         <p align="left" id="redValue"><strong>Red Cluster</strong>&emsp;&emsp;</p>
         <p align="left" id="blueValue"><strong>Blue Cluster</strong>&emsp;&emsp;</p>
@@ -56,20 +57,18 @@
           <text x="350" y="520">20</text>
           <text x="475" y="520">30</text>
           <text x="600" y="520">40</text>
-          <text x="400" y="540" class="label-title">x axis</text>
         </g>
         <g class="labels y-labels">
           <text x="80" y="15">40</text>
           <text x="80" y="131">30</text>
           <text x="80" y="248">20</text>
           <text x="80" y="373">10</text>
-          <text x="50" y="200" class="label-title">y axis</text>
         </g>
         <g class="data" data-setname="K Means Example Data Set"></g>
       </svg>
       <br>
-      <button class="btn btn-danger" onclick="dataAssignment(points, allClusters, redCluster, blueCluster, greenCluster)"><strong>Data Assignment</strong></button>
-      <button class="btn btn-info" onclick="updateCentroid(clusters, clusterColor, allClusters, colors)"><strong>Centroid Update</strong></button>
+      <button class="btn btn-danger btn-sm" id="assignmentBtn" onclick="dataAssignment(points, allClusters, redCluster, blueCluster, greenCluster)"><strong>Data Assignment</strong></button>
+      <button class="btn btn-info btn-sm" id="updateBtn" onclick="updateCentroid(clusters, clusterColor, allClusters, colors)"><strong>Centroid Update</strong></button>
       <br><br><br>
       <h6><strong>Directions: Click on data assignment followed by centroid update until the values stop changing. Refesh the page for a new data set and new centroid starting locations</strong></h6>
       <h6>The animation above shows K Means Clustering where K = 3 for a dataset of 500 randomly placed points</h6>

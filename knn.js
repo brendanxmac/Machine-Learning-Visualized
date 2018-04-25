@@ -12,6 +12,9 @@ var purpleTally = 0;
 var greenTally = 0;
 var k = 3;
 
+document.getElementById('neighborBtn').disabled = true;
+document.getElementById('classifyBtn').disabled = true;
+
 // green points
 for (var i = 0; i < numPoints/2; i++) {
   points.push([Math.floor(Math.random() * (250 - 5)) + 100, Math.floor(Math.random() * 460) + 20]);
@@ -43,22 +46,20 @@ for (point in points) {
 
 // Add New Data Point
 function addNewSample() {
-  if (new_point_classified == false) {
-    alert("Classify the new sample before you add another");
-  } else {
-    new_point_classified = false;
-    new_point_created = true;
-    points.push([Math.floor(Math.random() * 500) + 130, Math.floor(Math.random() * 460) + 20]);
-    cur_num_of_points = points.length-1;
-    console.log("Num of Points: " + cur_num_of_points);
-    var newPoint = document.createElementNS(svgns, 'circle');
-    newPoint.setAttributeNS(null, 'id', cur_num_of_points);
-    newPoint.setAttributeNS(null, 'cx', points[cur_num_of_points][0]);
-    newPoint.setAttributeNS(null, 'cy', points[cur_num_of_points][1]);
-    newPoint.setAttributeNS(null, 'r',15);
-    newPoint.setAttributeNS(null, 'style', 'fill: orange; fill-opacity: 1;');
-    graph.appendChild(newPoint);
-  }
+  document.getElementById('neighborBtn').disabled = false;
+  new_point_classified = false;
+  new_point_created = true;
+  points.push([Math.floor(Math.random() * 500) + 130, Math.floor(Math.random() * 460) + 20]);
+  cur_num_of_points = points.length-1;
+  console.log("Num of Points: " + cur_num_of_points);
+  var newPoint = document.createElementNS(svgns, 'circle');
+  newPoint.setAttributeNS(null, 'id', cur_num_of_points);
+  newPoint.setAttributeNS(null, 'cx', points[cur_num_of_points][0]);
+  newPoint.setAttributeNS(null, 'cy', points[cur_num_of_points][1]);
+  newPoint.setAttributeNS(null, 'r',15);
+  newPoint.setAttributeNS(null, 'style', 'fill: orange; fill-opacity: 1;');
+  graph.appendChild(newPoint);
+  document.getElementById('plotBtn').disabled = true;
 }
 
 function findNearestNeighbors() {
@@ -94,31 +95,31 @@ function findNearestNeighbors() {
       greenTally += 1;
     }
   }
+  document.getElementById('neighborBtn').disabled = true;
+  document.getElementById('classifyBtn').disabled = false;
 }
 
 function classifySample() {
-  if (new_point_created == false) {
-    alert("You have to add a new point before you can classify it.")
-  } else {
-    classify_point = document.getElementById(cur_num_of_points);
-    if (classify_point != -1) {
-      if (purpleTally > greenTally) {
-        classify_point.setAttributeNS(null, 'style', 'fill: purple; fill-opacity: .9;');
-        classify_point.setAttributeNS(null, 'dataColor', 'purple');
-        classify_point.setAttributeNS(null, 'r', 5);
-      } else {
-        classify_point.setAttributeNS(null, 'style', 'fill: green; fill-opacity: .9;');
-        classify_point.setAttributeNS(null, 'dataColor', 'green');
-        classify_point.setAttributeNS(null, 'r', 5);
-      }
+  classify_point = document.getElementById(cur_num_of_points);
+  if (classify_point != -1) {
+    if (purpleTally > greenTally) {
+      classify_point.setAttributeNS(null, 'style', 'fill: purple; fill-opacity: .9;');
+      classify_point.setAttributeNS(null, 'dataColor', 'purple');
+      classify_point.setAttributeNS(null, 'r', 5);
+    } else {
+      classify_point.setAttributeNS(null, 'style', 'fill: green; fill-opacity: .9;');
+      classify_point.setAttributeNS(null, 'dataColor', 'green');
+      classify_point.setAttributeNS(null, 'r', 5);
     }
-
-    for (neighbor in k_nearest_neighbors) {
-      var close_neighbor = document.getElementById(k_nearest_neighbors[neighbor]);
-      close_neighbor.setAttributeNS(null, 'r', 5);
-    }
-
-    new_point_classified = true;
-    new_point_created = false;
   }
+
+  for (neighbor in k_nearest_neighbors) {
+    var close_neighbor = document.getElementById(k_nearest_neighbors[neighbor]);
+    close_neighbor.setAttributeNS(null, 'r', 5);
+  }
+
+  new_point_classified = true;
+  new_point_created = false;
+  document.getElementById('classifyBtn').disabled = true;
+  document.getElementById('plotBtn').disabled = false;
 }

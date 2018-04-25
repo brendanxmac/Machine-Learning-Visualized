@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <!-- Custom styles for this template -->
+  <link href="algorithms.css" rel="stylesheet">
+  <title>Machine Learning Visualized</title>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Machine Learning Visualized</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="introduction.html">Introduction</a>
+        <a class="nav-item nav-link" href="kmeans.html">K Means</a>
+        <a class="nav-item nav-link" href="knn.html">KNN</a>
+        <a class="nav-item nav-link" href="linear_regression.html">Linear Regression </a>
+        <a class="nav-item nav-link active" href="logistic_regression.html">Logistic Regression <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="naive_bayes.html">Naive Bayes</a>
+      </div>
+    </div>
+  </nav>
+</head>
+
+<body>
+  <div class="content">
+    <br><br>
+    <div align="center" class="opener">
+      <h1>Logistic Regression</h1>
+    </div>
+
+    <div align="center">
+      <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" id="graph" aria-labelledby="title" role="img">
+        <title id="title">Logistic Regression in Action</title>
+        <g class="grid x-grid" id="xGrid">
+          <line x1="100" x2="100" y1="0" y2="500"></line>
+        </g>
+        <g class="grid y-grid" id="yGrid">
+          <line x1="100" x2="600" y1="500" y2="500"></line>
+        </g>
+        <g class="labels x-labels">
+          <text x="100" y="520">0</text>
+          <text x="225" y="520">1</text>
+          <text x="350" y="520">2</text>
+          <text x="475" y="520">3</text>
+          <text x="600" y="520">4</text>
+          <text x="350" y="540" class="label-title">X Axis</text>
+        </g>
+        <g class="labels y-labels">
+          <text x="80" y="15">1</text>
+          <text x="80" y="125">.75</text>
+          <text x="80" y="250">.50</text>
+          <text x="80" y="375">.25</text>
+          <text x="50" y="200" class="label-title">Y Axis</text>
+        </g>
+        <g class="data" data-setname="K Nearest Neighbors Data Set"></g>
+      </svg>
+      <br>
+      <button class="btn btn-danger" onclick="plotMeans()"><strong>Plot x & y means</strong></button>
+      <button class="btn btn-info" onclick="calculateLinearRegression()"><strong>Calculate Linear Regression</strong></button>
+      <button class="btn btn-success" onclick="distanceFromDataToLine()"><strong>Show Data Error Lengths</strong></button>
+      <br><br><br><br><br>
+      <div class="abstract">
+        <hr>
+        <br><br>
+        <h1><i>A straight line that is shared equally between every single point in the plot. Make this more abstract</i></h1>
+        <br><br>
+        <hr>
+      </div>
+      <br><br><br><br>
+    </div>
+
+    <div class="alg-visual">
+      <h1><strong>The Algorithm</strong></h1>
+      <br><br>
+      <div align="left" class="alg-steps">
+        <ul class="list-unstyled">
+          <h3><li><strong>Input:</strong></li></h3>
+          <ul>
+            <h5><li><strong>K</strong><small> (# of clusters)</small></li></h5>
+            <h5><li>A data set</li></h5>
+          </ul>
+          <br>
+          <h3><li><strong>Setup - </strong>Randomly generate starting positions for the K many centriods</li></h3>
+          <br>
+          <h3><li><strong>Data Assignment:</strong> Assign each datapoint to the nearest centroid</li></h3>
+          <br>
+          <h3><li><strong>Centroid Update:</strong> For each centroid, calculate the mean distance of all data points assigned to it, update centroid location to mean location</li></h3>
+          <br>
+          <h3><li><strong>Repeat Steps 1 and 2 until centroids no longer update</strong></li></h3>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alg-intro">
+      <br><br><br><br>
+      <h1><strong>In a Nutshell</strong></h1>
+      <br><br>
+      <h4><strong>Category</strong></h4>
+      <h5><i><a href="introduction.html#unsupervised">Unsupervised Learning</a>- Data is not labeled</i></h5>
+      <h4><strong>Usage:</strong></h4>
+      <h5><i>Classification (Clustering) - Finding groups within the data</i></h5>
+      <br><br>
+      <ul>
+        <li>
+          <h5>K Means can be thought of as clustering data into K groups. </h5></li>
+        <li>
+          <h5>After the variable K is defined, (for example purposes we will use 3) The data that is already present will separate itself into K groups.</h5></li>
+        <li>
+          <h5>Thinking of this algorithm visually, it appears as if the data actually "reveals" itself into K groups.</h5></li>
+        <li>
+          <h5>For all Clustering algorithms remember, they are searching and exposing data groups based on certain qualities within the data.</h5></li>
+        <li>
+          <h5>Over each run of the algorithm the groups become more and more defined.</h5></li>
+      </ul>
+      <br><br>
+      <h4><strong>Similarities in qualities of certain data points compared to others create groups</strong></h4>
+    </div>
+    <br><br><br><br>
+  </div>
+  <footer class="text-muted">
+    <div align="center" class="container">
+      <p>Machine Learning Visualized &copy; is a 2017 thesis developed in 2017 for Endicott College by Brendan McLaughlin</p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+  <script src="logistic_regression.js"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+
+</html>

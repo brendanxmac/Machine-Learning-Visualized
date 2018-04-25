@@ -73,11 +73,9 @@ footer p {
 }
 
 body h1 {
-  font-size: 50pt;
+  font-size: 40pt;
   font-weight: 300;
 }
-
-
 
 .content {
   margin-left: 10%;
@@ -86,7 +84,7 @@ body h1 {
 }
 
 .content h1 {
-  font-size: 45pt;
+  font-size: 40pt;
 }
 
 .alg-header h1 {
@@ -209,7 +207,7 @@ h2 {
 
 .graph {
   height: 550px;;
-  width: 800px;
+  width: 700px;
 }
 
 .graph .grid {

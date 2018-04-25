@@ -22,22 +22,21 @@
         <a class="nav-item nav-link" href="kmeans.html">K Means</a>
         <a class="nav-item nav-link active" href="knn.html">KNN <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="linear_regression.html">Linear Regression</a>
+        <a class="nav-item nav-link" href="logistic_regression.html">Logistic Regression</a>
+        <a class="nav-item nav-link" href="naive_bayes.html">Naive Bayes</a>
       </div>
     </div>
   </nav>
-
 </head>
 
 <body>
 
   <div class="content">
-    <br><br>
+    <br>
     <div align="center" class="opener">
       <h1>K Nearest Neighbors</h1>
     </div>
-
     <div align="center">
-      <br><br><br>
       <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" id="graph" aria-labelledby="title" role="img">
         <title id="title">K Nearest Neighbors in Action</title>
         <g class="grid x-grid" id="xGrid">
@@ -52,22 +51,19 @@
           <text x="350" y="520">20</text>
           <text x="475" y="520">30</text>
           <text x="600" y="520">40</text>
-          <text x="350" y="540" class="label-title">X Axis</text>
         </g>
         <g class="labels y-labels">
           <text x="80" y="15">40</text>
           <text x="80" y="131">30</text>
           <text x="80" y="248">20</text>
           <text x="80" y="373">10</text>
-          <text x="50" y="200" class="label-title">Y Axis</text>
         </g>
         <g class="data" data-setname="K Nearest Neighbors Data Set"></g>
       </svg>
-
-      <br><br>
-      <button class="btn btn-danger" onclick="addNewSample()"><strong>Plot New Sample</strong></button>
-      <button class="btn btn-info" onclick="findNearestNeighbors()"><strong>Find Nearest Neighbors</strong></button>
-      <button class="btn btn-success" onclick="classifySample()"><strong>Classify Sample</strong></button>
+      <br>
+      <button class="btn btn-danger btn-sm" id="plotBtn" onclick="addNewSample()"><strong>Plot New Sample</strong></button>
+      <button class="btn btn-info btn-sm" id="neighborBtn" onclick="findNearestNeighbors()"><strong>Find Nearest Neighbors</strong></button>
+      <button class="btn btn-success btn-sm" id="classifyBtn" onclick="classifySample()"><strong>Classify Sample</strong></button>
 
       <br><br><br><br>
 

@@ -5,6 +5,7 @@ for (var i = 0; i < numPoints; i++) {
   points.push([Math.floor(Math.random() * 500) + 130, Math.floor(Math.random() * 460) + 20]);
 }
 
+document.getElementById('updateBtn').disabled = true;
 
 var svgns = "http://www.w3.org/2000/svg";
 var container = document.getElementById('graph');
@@ -52,7 +53,8 @@ allClusters.push([redCluster],[blueCluster],[greenCluster]);
 
 
 function dataAssignment(points, allClusters, redCluster, blueCluster, greenCluster) {
-
+  document.getElementById('assignmentBtn').disabled = true;
+  document.getElementById('updateBtn').disabled = false;
   //CLEAR OUT ALL OLD DATA
   for (cluster in allClusters) {
     if (allClusters[cluster][0].length > 1) {
@@ -94,6 +96,8 @@ function dataAssignment(points, allClusters, redCluster, blueCluster, greenClust
 }
 
 function updateCentroid(clusters, clusterColor, allClusters, colors) {
+  document.getElementById('assignmentBtn').disabled = false;
+  document.getElementById('updateBtn').disabled = true;
   for (cluster in clusters) {
     var clusterX = 0;
     var clusterY = 0;
