@@ -17,6 +17,10 @@ var slope = 0;
 var y_intercept = 0;
 var y_int = 0;
 
+document.getElementById('plotBtn').disabled = false;
+document.getElementById('calcBtn').disabled = true;
+document.getElementById('distanceBtn').disabled = true;
+
 
 var svgns = "http://www.w3.org/2000/svg";
 var container = document.getElementById('graph');
@@ -70,10 +74,15 @@ y_intercept = y_mean - (slope * x_mean);
 
 function plotMeans() {
   // Create y mean and x mean lines
+  document.getElementById('plotBtn').disabled = true;
+  document.getElementById('calcBtn').disabled = false;
   createLine('x_mean', x_mean, x_mean, y_min, y_max, 'green', 3, 0.1);
   createLine('y_mean', x_min, x_max, y_mean, y_mean, 'blue', 3, 0.1);
 }
+
 function calculateLinearRegression() {
+  document.getElementById('calcBtn').disabled = true;
+  document.getElementById('distanceBtn').disabled = false;
   // Plot y-intercept
   y_int = (slope * 100) + y_intercept;
   createCirlce('y_intercept', x_min, y_int, 5, 'red', 1);
@@ -82,6 +91,7 @@ function calculateLinearRegression() {
   y_int = (slope * x_max) + y_intercept;
   createLine('linear_regression_line', 0, x_max, y_intercept, y_int, 'red', 2, 1, 5);
 }
+
 function distanceFromDataToLine() {
   // Lines from data to linear regression line
   for (point in data_points) {

@@ -231,3 +231,22 @@ h2 {
   fill: red;
   stroke-width: 2;
 }
+
+.graph-log .labels.x-labels {
+  text-anchor: middle;
+}
+
+.graph-log .labels.y-labels {
+  text-anchor: end;
+}
+
+.graph-log {
+  height: 440px;
+  width: 700px;
+}
+
+.graph-log .grid {
+  stroke: #ccc;
+  stroke-dasharray: 0;
+  stroke-width: 2;
+}
