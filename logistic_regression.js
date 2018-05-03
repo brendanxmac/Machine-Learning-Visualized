@@ -5,27 +5,27 @@ var x_min = 100;
 var x_max = 600;
 var y_min = 0;
 var y_max = 400;
-var num_data_points = 50;
-var data_points = [];
-var x_mean = 0;
-var y_mean = 0;
-var x_minus_mean = [];
-var y_minus_mean = [];
-var run = 0;
-var rise = 0;
-var slope = 0;
-var y_intercept = 0;
-var y_int = 0;
+var num_training_data = 50;
+var training_data = [];
+
+// Sigmoid Variables
+var b_0 = .5;
+var alpha = .001;
+var b_1 = .5;
+var x_0 = 1;
+var iterations = 2;
+var z;
+var changes;
 
 var svgns = "http://www.w3.org/2000/svg";
 var container = document.getElementById('graph-log');
 
-for (var i = 0; i < num_data_points/2; i++) {
-  data_points.push([Math.floor(Math.random() * (360-110)) + 110, 400]);
+for (var i = 0; i < num_training_data/2; i++) {
+  training_data.push([Math.floor(Math.random() * (360-110)) + 110, 400]);
 }
 
-for (var i = 0; i < num_data_points/2; i++) {
-  data_points.push([Math.floor(Math.random() * (600-320)) + 320, 10]);
+for (var i = 0; i < num_training_data/2; i++) {
+  training_data.push([Math.floor(Math.random() * (600-320)) + 320, 10]);
 }
 
 //******************************************
@@ -56,49 +56,53 @@ function createLine(id, x1, x2, y1, y2, color, width, opacity, dash) {
 }
 
 // create a DOM for each data point
-for (point in data_points) {
-  createCirlce(point, data_points[point][0], data_points[point][1], 6, 'black', 1);
-  x_mean += data_points[point][0];
-  y_mean += data_points[point][1];
+for (point in training_data) {
+  createCirlce(point, training_data[point][0], training_data[point][1], 6, 'black', 1);
 }
 
-x_mean  = x_mean / num_data_points;
-y_mean = y_mean / num_data_points;
+//plot decision boundary
+createLine("decision_boundary", x_min, x_max, (y_max/2), (y_max/2), 'blue', 1, .4, 3);
 
-// Calculate Rise and Run
-for (point in data_points) {
-  rise += ((data_points[point][0] - x_mean) * (data_points[point][1] - y_mean));
-  run += Math.pow((data_points[point][0] - x_mean),2);
+function sigmoid(z) {
+  console.log("Sigmoid Value: " + 1 / (1 + Math.exp(-z)));
+  return 1 / (1 + Math.exp(-z));
 }
-
-slope = rise / run;
-y_intercept = y_mean - (slope * x_mean);
-
-
-function plotMeans() {
-  // Create y mean and x mean lines
-  createLine('x_mean', x_mean, x_mean, y_min, y_max, 'green', 3, 0.1);
-  createLine('y_mean', x_min, x_max, y_mean, y_mean, 'blue', 3, 0.1);
-}
-
-function calculateLinearRegression() {
-  // Plot y-intercept
-  // y = mx + b
-  y_int = (slope * 100) + y_intercept;
-  createCirlce('y_intercept', x_min, y_int, 5, 'red', 1);
-
-  // Plot Linear Regression Line
-  y_int = (slope * x_max) + y_intercept;
-  createLine('linear_regression_line', 0, x_max, y_intercept, y_int, 'blue', 1, 1, 5);
-}
-
+// Formula for Gradient Ascent
+//========================================================
+// B prime =   B   + alpha(predicted_y -  real_y) real_x
+// B'_(j) := B_(j) + alpha(  ^y(i)     -  y(i)  ) x_(j)(i)
+//
+// initial B values (B_0 - b_n) can be random / abritrary
+// x_0 is always 1, and then the real x values from the
+// data will take place
+//=========================================================
 function plotSigmoid() {
-  console.log("Slope: " + slope);
-  console.log("y intercept: " + y_intercept);
-  for (var i = 100; i < x_max; i+=4) {
-    var z = Math.exp((slope * i) + y_intercept);
-    var sigmoid_y_value = 1/(1+ Math.exp(z));
-    console.log(sigmoid_y_value);
-    createCirlce('sigmoid_line_dot', i, sigmoid_y_value, 1, 'red', 1);
+  for (var i = 0; i < iterations; i++) {
+    changes = 0;
+    for (var j = 0; j < num_training_data; j++) {
+      // console.log("Point " + j + "x: " + training_data[j][0]);
+      // console.log("Point " + j + "y: " + training_data[j][1]);
+      z = b_0 + (b_1 * training_data[j][0]);
+      var new_b_0 = b_0 + (alpha * (sigmoid(z) - training_data[j][1]) * x_0);
+      var new_b_1 = b_1 + (alpha * (sigmoid(z) - training_data[j][1]) * training_data[j][0]);
+      console.log("B_0: " + new_b_0);
+      console.log("B_1: " + new_b_1);
+      if (new_b_0 != b_0 || new_b_1 != b_1) {
+        changes++;
+      }
+      b_0 = new_b_0;
+      b_1 = new_b_1;
+    }
+    if (changes == 0) {
+      break;
+    }
   }
+}
+
+function plotNewData() {
+
+}
+
+function classify() {
+
 }
