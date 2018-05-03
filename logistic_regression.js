@@ -5,15 +5,15 @@ var x_min = 100;
 var x_max = 600;
 var y_min = 0;
 var y_max = 400;
-var num_training_data = 50;
+var num_training_data =50;
 var training_data = [];
 
 // Sigmoid Variables
 var b_0 = .5;
-var alpha = .001;
+var alpha = .000000001;
 var b_1 = .5;
 var x_0 = 1;
-var iterations = 2;
+var iterations = 1000;
 var z;
 var changes;
 
@@ -25,7 +25,7 @@ for (var i = 0; i < num_training_data/2; i++) {
 }
 
 for (var i = 0; i < num_training_data/2; i++) {
-  training_data.push([Math.floor(Math.random() * (600-320)) + 320, 10]);
+  training_data.push([Math.floor(Math.random() * (600-320)) + 320, 5]);
 }
 
 //******************************************
@@ -57,15 +57,15 @@ function createLine(id, x1, x2, y1, y2, color, width, opacity, dash) {
 
 // create a DOM for each data point
 for (point in training_data) {
-  createCirlce(point, training_data[point][0], training_data[point][1], 6, 'black', 1);
+  createCirlce(point, training_data[point][0], training_data[point][1], 5, 'black', .5);
 }
 
 //plot decision boundary
 createLine("decision_boundary", x_min, x_max, (y_max/2), (y_max/2), 'blue', 1, .4, 3);
 
 function sigmoid(z) {
-  console.log("Sigmoid Value: " + 1 / (1 + Math.exp(-z)));
-  return 1 / (1 + Math.exp(-z));
+  // console.log("Sigmoid Value: " + (1 / (1 + Math.exp(-z))));
+  return (1/(1+Math.exp(-z)));
 }
 // Formula for Gradient Ascent
 //========================================================
@@ -80,13 +80,12 @@ function plotSigmoid() {
   for (var i = 0; i < iterations; i++) {
     changes = 0;
     for (var j = 0; j < num_training_data; j++) {
-      // console.log("Point " + j + "x: " + training_data[j][0]);
-      // console.log("Point " + j + "y: " + training_data[j][1]);
+      // console.log("Point " + j + ":  x = " + training_data[j][0] + "  y = " + training_data[j][1]);
       z = b_0 + (b_1 * training_data[j][0]);
       var new_b_0 = b_0 + (alpha * (sigmoid(z) - training_data[j][1]) * x_0);
       var new_b_1 = b_1 + (alpha * (sigmoid(z) - training_data[j][1]) * training_data[j][0]);
-      console.log("B_0: " + new_b_0);
-      console.log("B_1: " + new_b_1);
+      // console.log("B_0: " + new_b_0);
+      // console.log("B_1: " + new_b_1);
       if (new_b_0 != b_0 || new_b_1 != b_1) {
         changes++;
       }
@@ -96,7 +95,10 @@ function plotSigmoid() {
     if (changes == 0) {
       break;
     }
+    console.log(i);
   }
+  console.log("B_0: " + b_0);
+  console.log("B_1: " + b_1);
 }
 
 function plotNewData() {
