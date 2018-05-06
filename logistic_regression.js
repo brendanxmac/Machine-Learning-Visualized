@@ -9,28 +9,33 @@ var num_training_data =70;
 var training_data = [];
 var testing_data = [];
 var color = ' ';
+var new_data_num = 0;
 
 // Sigmoid Variables
-var b_0 = .09;
-var b_1 = .09;
-var alpha = .000001;
+var b_0 = .5;
+var b_1 = .5;
+var alpha = .01;
 var x_0 = 1;
-var iterations = 1000;
+var iterations = 10000;
 var z;
 var changes;
+var x_val;
 
 var svgns = "http://www.w3.org/2000/svg";
 var container = document.getElementById('graph-log');
 
 for (var i = 0; i < num_training_data/2; i++) {
   // training_data.push([Math.floor(Math.random() * (360-110)) + 110, 400]);
-  training_data.push([(Math.random() * (2.5-0.0)).toFixed(3), 0]);
+  training_data.push([(Math.random() * (3.0-0.0)), 0]);
 }
 
 for (var i = 0; i < num_training_data/2; i++) {
   // training_data.push([Math.floor(Math.random() * (600-320)) + 320, 5]);
-  training_data.push([(Math.random() * (5-2.5) + 2.5).toFixed(3), 1]);
+  training_data.push([(Math.random() * (5-2.5) + 2.5), 1]);
 }
+
+document.getElementById('plot_data_btn').disabled = true;
+document.getElementById('classify_btn').disabled = true;
 
 // DO 'THE' CONVERSIONS HERE
 // x = x+1 *100
@@ -39,15 +44,11 @@ for (var i = 0; i < num_training_data/2; i++) {
 //******************************************
 // Create Circles Function
 //******************************************
-function createCirlce(line, id, cx, cy, r, color, opacity) {
+function createCirlce(id, cx, cy, r, color, opacity) {
   var newPoint = document.createElementNS(svgns, 'circle');
-  if (line == 1) {
-    cx = (((cx+1) * 100) + 100).toFixed(2);
-    cy = 400 - (cy * 395);
-  } else {
-    cx = cx + 350;
-    cy = 400 - (cy * 395);
-  }
+  cx = cx+1;
+  cx = cx * 100;
+  cy = 400 - (cy * 395);
   newPoint.setAttributeNS(null, 'id', id);
   newPoint.setAttributeNS(null, 'cx', cx);
   newPoint.setAttributeNS(null, 'cy', cy);
@@ -77,7 +78,7 @@ for (point in training_data) {
   } else {
     color = 'purple';
   }
-  createCirlce(1, 'point'+point, training_data[point][0], training_data[point][1], 5, color, .7);
+  createCirlce('point'+point, training_data[point][0], training_data[point][1], 5, color, .7);
   var plot_data = anime({
     targets: '#' + 'point' + point,
     r: {
@@ -93,7 +94,7 @@ for (point in training_data) {
 createLine("decision_boundary", x_min, x_max, (y_max/2), (y_max/2), 'blue', 1, .4, 1);
 
 function sigmoid(z) {
-  return (1/(1+Math.exp(-z)));
+  return 1/(1+Math.exp(-z));
 }
 // Formula for Gradient Ascent
 //========================================================
@@ -109,8 +110,8 @@ function plotSigmoid() {
     changes = 0;
     for (var j = 0; j < num_training_data; j++) {
       z = b_0 + (b_1 * training_data[j][0]);
-      var new_b_0 = b_0 + (alpha * (sigmoid(z) - training_data[j][1]) * x_0);
-      var new_b_1 = b_1 + (alpha * (sigmoid(z) - training_data[j][1]) * training_data[j][0]);
+      var new_b_0 = b_0 - (alpha * (sigmoid(z) - training_data[j][1]) * x_0);
+      var new_b_1 = b_1 - (alpha * (sigmoid(z) - training_data[j][1]) * training_data[j][0]);
       if (new_b_0 != b_0 || new_b_1 != b_1) {
         changes++;
       }
@@ -121,29 +122,78 @@ function plotSigmoid() {
       break;
     }
   }
-  console.log("B_0: " + b_0);
-  console.log("B_1: " + b_1);
-  for (var i = -250; i < x_max/2; i+=2) {
+  for (var i = 0; i < 5; i+=.002) {
     z = b_0 + (b_1 * i);
-    createCirlce(0, "sigmoid_point" + i, i, sigmoid(z), 20, 'orange', 1);
+    createCirlce("sigmoid_point" + i, i, sigmoid(z), 1, 'orange', 1);
 
     var plotSig = anime({
       targets: '#' + 'sigmoid_point' + i,
       r: {
         value: 2,
         easing: 'easeInOutSine',
-        duration: 300,
+        duration: 250,
       },
     });
   }
+  document.getElementById('plot_sig_btn').disabled = true;
+  document.getElementById('plot_data_btn').disabled = false;
+
 }
 
 function plotNewData() {
-  var x_val = (Math.random() * (5.0-0.0)).toFixed(3);
+  x_val = (Math.random() * (5.0-0.0));
   z = b_0 + (b_1 * x_val);
-  createCirlce(1, "testing_data", x_val, sigmoid(z), 7, 'red', .7);
+  createCirlce('new_data' + new_data_num, x_val, sigmoid(z), 7, 'black', 1);
+
+  var plotNewPoint = anime({
+    targets: '#' + 'new_data' + new_data_num,
+    r: {
+      value: 1,
+      easing: 'easeInOutSine',
+      duration: 350,
+    },
+    direction: 'alternate'
+  });
+  document.getElementById('plot_data_btn').disabled = true;
+  document.getElementById('classify_btn').disabled = false;
 }
 
 function classify() {
-
+  var point_to_classify = document.getElementById('new_data' + new_data_num);
+  if (sigmoid(z) >= .5) {
+    var classifyNewPoint = anime({
+      targets: '#' + 'new_data' + new_data_num,
+      cy: {
+        value: 5,
+        easing: 'easeInOutSine',
+        duration: 500,
+      },
+      r: {
+        value: 5,
+        easing: 'easeInOutSine',
+        duration: 250,
+        direction: 'alternate'
+      }
+    });
+    point_to_classify.style.fill = 'purple';
+  } else if (sigmoid(z) < .5) {
+    var classifyNewPoint = anime({
+      targets: '#' + 'new_data' + new_data_num,
+      cy: {
+        value: 400,
+        easing: 'easeInOutSine',
+        duration: 500,
+      },
+      r: {
+        value: 5,
+        easing: 'easeInOutSine',
+        duration: 250,
+        direction: 'alternate'
+      }
+    });
+    point_to_classify.style.fill = 'green';
+  }
+  new_data_num++;
+  document.getElementById('plot_data_btn').disabled = false;
+  document.getElementById('classify_btn').disabled = true;
 }
