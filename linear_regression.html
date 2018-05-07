@@ -68,7 +68,7 @@
       <div class="abstract">
         <hr>
         <br><br>
-        <h1><i>A straight line that is shared equally between every single point in the plot. Make this more abstract</i></h1>
+        <h1><i>A straight line that is being pulled equally between every single point in the plot to minimize error of the line at any point of x</i></h1>
         <br><br>
         <hr>
       </div>
@@ -82,22 +82,21 @@
         <ul class="list-unstyled">
           <h3><li>Input:</li></h3>
           <ul>
-            <h5><li><strong>K</strong><small> (# of clusters)</small></li></h5>
-            <h5><li>A data set</li></h5>
+            <h5><li>A training data set and a testing data set</li></h5>
           </ul>
           <br>
           <p>
-            <li><strong>Setup:</strong> Randomly generate starting positions for the K many centriods</li>
+            <li><strong>Setup:</strong> Plot Data</li>
           </p>
           <br>
           <p>
-            <li><strong>Step 1)</strong><i> Data Assignment:</i> Assign each datapoint to the nearest centroid</li>
+            <li><i>Calculate Linear Regression</i> Calculate the intercept ( b value in y = mx + b). Use the least squares method to find slope</li>
           </p>
           <p>
-            <li><strong>Step 2)</strong><i> Centroid Update:</i> For each centroid, calculate the mean distance of all data points assigned to it, update centroid location to mean location</li>
+            <li><i>Plot the line</i> For all the x values on your graph, use the equation you calculated to plot a line accross them</li>
           </p>
           <p>
-            <li><strong>Repeat steps 1 & 2 until no datapoint reassigned</strong></li>
+            <li><i>Show Data Error Lengths</i> Show how far away from the line each data point is. This represents error</li>
           </p>
         </ul>
       </div>
@@ -108,21 +107,13 @@
       <h1><strong>In a Nutshell</strong></h1>
       <br>
       <h4><strong>Category</strong></h4>
-      <h5><i><a href="introduction.html#unsupervised">Unsupervised Learning</a>- Data is not labeled</i></h5>
+      <h5><i><a href="introduction.html#unsupervised">Supervised Learning</a>- Data is labeled</i></h5>
       <h4><strong>Usage:</strong></h4>
-      <h5><i>Classification (Clustering) - Finding groups within the data</i></h5>
+      <h5><i>Regression - Predicting values after seeing how values were mapped in the passed given certain features</i></h5>
       <br>
       <ul>
         <li>
-          <h5>K Means can be thought of as clustering data into K groups. </h5></li>
-        <li>
-          <h5>After the variable K is defined, (for example purposes we will use 3) The data that is already present will separate itself into K groups.</h5></li>
-        <li>
-          <h5>Thinking of this algorithm visually, it appears as if the data actually "reveals" itself into K groups.</h5></li>
-        <li>
-          <h5>For all Clustering algorithms remember, they are searching and exposing data groups based on certain qualities within the data.</h5></li>
-        <li>
-          <h5>Over each run of the algorithm the groups become more and more defined.</h5></li>
+          <h5>Linear Regression can be thought of as seeing house prices in a certain geographic region, and based on certain features, predicting the value of a new house given its features  </h5></li>
       </ul>
       <br>
     </div>

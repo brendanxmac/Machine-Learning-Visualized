@@ -84,17 +84,15 @@
         <ul class="list-unstyled">
           <h3><li><strong>Input:</strong></li></h3>
           <ul>
-            <h5><li><strong>K</strong><small> (# of clusters)</small></li></h5>
-            <h5><li>A data set</li></h5>
+            <h5><li><strong>K</strong><small> (# neighbors to check)</small></li></h5>
+            <h5><li>A training set & a testing data set</li></h5>
           </ul>
           <br>
-          <h3><li><strong>Setup - </strong>Randomly generate starting positions for the K many centriods</li></h3>
+          <h3><li><strong>Setup - </strong>Plot the data onto the graph and show class separation</li></h3>
           <br>
-          <h3><li><strong>Data Assignment:</strong> Assign each datapoint to the nearest centroid</li></h3>
+          <h3><li><strong>Find K Nearest Neighbors</strong>Plot a new data point and find it's K nearest neighbors using Euclidean distance</li></h3>
           <br>
-          <h3><li><strong>Centroid Update:</strong> For each centroid, calculate the mean distance of all data points assigned to it, update centroid location to mean location</li></h3>
-          <br>
-          <h3><li><strong>Repeat Steps 1 and 2 until centroids no longer update</strong></li></h3>
+          <h3><li><strong>Classify Sample</strong>Determine which class the majority of the samples K nearest neighbors belongs to, classify the sample as that majority class.</li></h3>
         </ul>
       </div>
     </div>
@@ -104,24 +102,20 @@
       <h1><strong>In a Nutshell</strong></h1>
       <br><br>
       <h4><strong>Category</strong></h4>
-      <h5><i><a href="introduction.html#unsupervised">Unsupervised Learning</a>- Data is not labeled</i></h5>
+      <h5><i><a href="introduction.html#unsupervised">Supervised Learning</a>- Data is labeled</i></h5>
       <h4><strong>Usage:</strong></h4>
-      <h5><i>Classification (Clustering) - Finding groups within the data</i></h5>
+      <h5><i>Classification - Finding groups within the data</i></h5>
       <br><br>
       <ul>
         <li>
-          <h5>K Means can be thought of as clustering data into K groups. </h5></li>
+          <h5>K Nearest Neighbors can be thought of as classifying data into K groups based on previously classified data.</h5></li>
         <li>
-          <h5>After the variable K is defined, (for example purposes we will use 3) The data that is already present will separate itself into K groups.</h5></li>
+          <h5>After the variable K is defined, (for example purposes we will use 3) the new sample data points which are part of the testing data set will find the K nearest neighbors</h5></li>
         <li>
-          <h5>Thinking of this algorithm visually, it appears as if the data actually "reveals" itself into K groups.</h5></li>
-        <li>
-          <h5>For all Clustering algorithms remember, they are searching and exposing data groups based on certain qualities within the data.</h5></li>
-        <li>
-          <h5>Over each run of the algorithm the groups become more and more defined.</h5></li>
+          <h5>Thinking of this algorithm visually, it appears as if the data which group it is more closely related to, and is classified as such</h5></li>
       </ul>
       <br><br>
-      <h4><strong>Similarities in qualities of certain data points compared to others create groups</strong></h4>
+      <h4><strong>Find the training data points you are nearest to, join the majority group of those neighbors</strong></h4>
 
     </div>
     <br><br>
