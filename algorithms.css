@@ -108,14 +108,14 @@ body h1 {
 
 .previous {
   border-radius: 8px;
-  background-color: #EEAC27;
+  background-color: #f0b235;
   color: white;
   margin-bottom: 25px;
 }
 
 .next {
   border-radius: 8px;
-  background-color: #4CAF50;
+  background-color: #38cf3e;
   color: white;
   width: 300px;
 }
